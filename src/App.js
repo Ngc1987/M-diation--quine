@@ -1,23 +1,25 @@
 import './App.scss';
 import { Routes, Route, Link } from "react-router-dom";
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
 import Description from './components/Description/Description';
 import ForWho from './components/ForWho/ForWho';
 import background from "./assets/bckg2.jpg"
 
 function App() {
-  	return (
+	return (
 		<div className="App">
-				<img src={background} alt="Fond d'écran" className="background"/>
-				<Header/>
-				<Description/>
-				<ForWho/>
-				<Routes>
-					{/* <Route path="/" element={<Home />} />
+			<img src={background} alt="Fond d'écran" className="background" />
+			{/* <Header/> */}
+			<Home/>
+			<Description />
+			<ForWho />
+			<Routes>
+				{/* <Route path="/" element={<Home />} />
 					<Route path="about" element={<About />} /> */}
-				</Routes>
+			</Routes>
 		</div>
-  	);
+	);
 }
 
 export default App;
