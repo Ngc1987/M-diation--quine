@@ -1,7 +1,7 @@
 .home {
 	display: flex;
 	flex-direction: column;	
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	position: relative;
 	// margin-top: 20px;
@@ -39,7 +39,7 @@
 		}
 
 		img {
-			margin-top: 270px;
+			// margin-top: 270px;
 			min-width: 100%;
 			max-width: 100%;
 			// height: auto;

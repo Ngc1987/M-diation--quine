@@ -4,16 +4,18 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Description from './components/Description/Description';
 import ForWho from './components/ForWho/ForWho';
-import background from "./assets/bckg2.jpg"
+import React from 'react';
+// import background from "./assets/bckg2.jpg";
+// import homePic from "../../assets/description2.jpg";
 
-function App() {
+const App:React.FC = () => {
 	return (
 		<div className="App">
-			<img src={background} alt="Fond d'écran" className="background" />
+			<img src="./assets/bckg2.jpg" alt="Fond d'écran" className="background" />
 			{/* <Header/> */}
-			<Home/>
-			<Description />
-			<ForWho />
+			<Home img={"description2.jpg"} />
+			{/* <Description />
+			<ForWho /> */}
 			<Routes>
 				{/* <Route path="/" element={<Home />} />
 					<Route path="about" element={<About />} /> */}

@@ -1,4 +1,5 @@
-import "./Description.scss"
+import React from "react";
+import "./Description.scss";
 
 const Description = () => {
 	return (
@@ -10,4 +11,4 @@ const Description = () => {
 	)
 }
 
-export default Description
+export default Description;

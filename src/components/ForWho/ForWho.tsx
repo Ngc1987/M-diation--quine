@@ -1,11 +1,12 @@
-import forwho from "../../assets/forwho.jpg";
+// import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
+import React from "react";
 import "./ForWho.scss"
 
-const ForWho = () => {
+const ForWho:React.FC = () => {
 	return (
 		<section className="forwho" >
 			<div className="forwho__image">
-				<img src={forwho} alt="deux chevaux face à deux personnes" />
+				<img src={"/assets/forwho.jpg"} alt="deux chevaux face à deux personnes" />
 				{/* <div className="forwho__image-layout"></div> */}
 				<div className="forwho__image-text">
 					<h2>La médiation équine</h2>

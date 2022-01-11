@@ -1,12 +1,13 @@
-import headLogo from "../../assets/headLogowebp.webp";
+import React from "react";
+// import headLogo from  "/assets/headLogowebp.webp"
 import "./Header.scss";
 
-const Header = () => {
+const Header:React.FC = () => {
 	return (
 		<header>
 
 			<div className="brand" >
-				<img src={headLogo} className="brand__logo" alt="logo de l'entreprise"></img>
+				<img src={"/assets/headLogowebp.webp"} className="brand__logo" alt="logo de l'entreprise"></img>
 				<h1 className="brand__name">Médiation équine</h1>
 			</div>
 
