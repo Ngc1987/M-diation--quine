@@ -1,13 +1,26 @@
+// import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
 import React from "react";
-import "./Description.scss";
+import "./Description.scss"
 
-const Description = () => {
+const Description:React.FC = () => {
 	return (
-		<article className="description" >
-			<p>
-				La médiation équine, ou équithérapie, est un soin donné par un professionnel de santé, formé à la relation d'aide, et facilité par la présence d'un cheval ou d'un poney.
-			</p>
-		</article>
+		<section id="desc" className="description" >
+			<div className="description__image">
+				<img src={"/assets/description.jpg"} alt="deux chevaux face à deux personnes" />
+				{/* <div className="description__image-layout"></div> */}
+			</div>
+
+			<div className="description__title">
+					<h2>La médiation équine, qu'est-ce que ?</h2>
+				</div>
+
+			<article className="description__article" >
+				<p>
+					Enfants, ados, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles ou cognitives, des troubles du spectre autistique, ou en difficulté sociale ou familiale.
+				</p>
+			</article>
+
+		</section>
 	)
 }
 

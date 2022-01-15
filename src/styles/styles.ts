@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-
+import styled from "styled-components"
 
 export const parent:CSSProperties = {
 	position: "relative",
@@ -28,3 +28,10 @@ export const main:CSSProperties = {
 	left: 0,
 	zIndex: 0
 }
+
+export const StyledDiv = styled.div`
+	background-color: rgba(236, 167, 194, 0.223);
+	backdrop-filter: blur(20px);
+	padding: 10px;
+	border-radius: 5px;
+`

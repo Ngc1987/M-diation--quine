@@ -8,11 +8,12 @@ const ForWho:React.FC = () => {
 			<div className="forwho__image">
 				<img src={"/assets/forwho.jpg"} alt="deux chevaux face à deux personnes" />
 				{/* <div className="forwho__image-layout"></div> */}
-				<div className="forwho__image-text">
+			</div>
+
+			<div className="forwho__title">
 					<h2>La médiation équine</h2>
 					<h3>Oui mais pour qui ?</h3>
 				</div>
-			</div>
 
 			<article className="forwho__article" >
 				<p>

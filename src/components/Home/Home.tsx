@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./Home.scss";
-import { lqip, main, parent } from '../../styles/styles';
+import { lqip, main, parent, StyledDiv } from '../../styles/styles';
 
 interface Props  {
 	img: string;
@@ -20,20 +20,23 @@ const Home:React.FC<Props> = ({ img }) => {
 
 		<section className="home" >
 			<div className="home__image">
-				<img style={{ ...lqip, opacity: imgLoaded ? 0 : 100 }}
+				<img className="home__image-lqip" 
+					// style={{ ...lqip, opacity: imgLoaded ? 0 : 100 }}
 					src={`/assets/${img}.lqip.jpg`}
 					alt="deux chevaux face à deux personnes" />
-				<img style={main}
+				<img className="home__image-main" 
+					// style={main}
 					src={`/assets/${img}`}
 					alt="deux chevaux face à deux personnes"
 					onLoad={() => setImgLoaded(true)} />
 
 				{/* <div className="description__image-layout"></div> */}
-				<div className="home__image-text">
+				
+			</div>
+			<StyledDiv className="home__text">
 					<h2>Le cheval, un gros animal !</h2>
 					<h3>Séances de médiation équine en Vendée</h3>
-				</div>
-			</div>
+				</StyledDiv>
 		</section>
 
 	)
