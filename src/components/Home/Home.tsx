@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import "./Home.scss";
 import { lqip, main, parent, StyledDiv } from '../../styles/styles';
 
-interface Props  {
+export interface Props  {
 	img: string;
+	innerRef?: React.MutableRefObject<null>,
 }
 
-const Home:React.FC<Props> = ({ img }) => {
+const Home:React.FC<Props> = ({ img, innerRef }) => {
 
 	const [imgLoaded, setImgLoaded] = useState<boolean>(false);
 
@@ -18,7 +19,7 @@ const Home:React.FC<Props> = ({ img }) => {
 
 	return (
 
-		<section className="home" >
+		<section ref={innerRef} className="home" >
 			<div className="home__image">
 				<img className="home__image-lqip" 
 					// style={{ ...lqip, opacity: imgLoaded ? 0 : 100 }}

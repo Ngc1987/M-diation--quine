@@ -13,17 +13,38 @@ import {gsap} from "gsap";
 
 const App:React.FC = () => {
 
-	const [toggle, setToggle] = useState<boolean>(false)
-	const changeState = ():void => {
-		setToggle(!toggle)
-	}
+	// const [toggle, setToggle] = useState<boolean>(false)
+	const background = useRef(null);
+	// const changeState = ():void => {
+	// 	setToggle(!toggle)
+	// 	console.log(toggle)
+	// }
+
+	useEffect(() => {
+
+		// toggle ? 
+		gsap.to(background.current, {
+			opacity: 1,
+			duration: 4,
+			scale: 1,
+		})
+		console.log(background)
+		// :
+		// gsap.to(background.current, {
+		// 	opacity: 0,
+		// 	duration: 2
+		// })
+		// console.log(background)
+	}, [])
+
+	console.log(background)
 
 	return (
 		<div className="App">
 			<img src="./assets/bckg2.jpg" alt="Fond d'écran" className="background" />
 			<Shortcuts/>
 
-			<Home img={"home.jpg"} />
+			<Home innerRef={background} img={"home.jpg"} />
 			<ForWho />
 			<Parcours/>
 			<Description />

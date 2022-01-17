@@ -8,6 +8,8 @@
 	position: relative;
 	// margin-top: 20px;
 	scroll-snap-align: start;
+		opacity: 0;
+		transform: scale(1.05);
 
 	&__image {
 		height: 100%;
