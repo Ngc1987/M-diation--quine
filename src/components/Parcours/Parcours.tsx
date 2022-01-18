@@ -1,24 +1,30 @@
 // import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
 import React from "react";
-import "./Parcours.scss"
+import { StyledDiv } from "styles/styles";
+import "./Parcours.scss";
 
-const Parcours:React.FC = () => {
+// Interface for the cmponent props
+export interface Props  {
+	innerRef?: React.MutableRefObject<null>,
+}
+
+const Parcours:React.FC<Props> = ({innerRef}) => {
 	return (
-		<section className="parcours" >
+		<section ref={innerRef} className="parcours" >
 			<div className="parcours__image">
 				<img src={"/assets/parcours.jpg"} alt="deux chevaux face à deux personnes" />
 				{/* <div className="parcours__image-layout"></div> */}
 			</div>
 
-			<div className="parcours__title">
+			<StyledDiv className="parcours__title">
 					<h2>Mon parcours</h2>
-				</div>
+				</StyledDiv>
 
-			<article className="parcours__article" >
+			<StyledDiv className="parcours__article" >
 				<p>
 					Enfants, ados, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles ou cognitives, des troubles du spectre autistique, ou en difficulté sociale ou familiale.
 				</p>
-			</article>
+			</StyledDiv>
 
 		</section>
 	)
