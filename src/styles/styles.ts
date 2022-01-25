@@ -33,7 +33,8 @@ export const main:CSSProperties = {
 }
 
 export const StyledDiv = styled.div`
-			background-color: #c5a69875;
+			background-color: #c5a6989f;
+;
 	backdrop-filter: blur(20px);
 	padding: 10px;
 	border-radius: 5px;

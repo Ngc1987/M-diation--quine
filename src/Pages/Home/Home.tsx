@@ -3,11 +3,12 @@ import "./Home.scss";
 import { lqip, main } from '../../styles/styles';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { hideGsap } from 'Greensock/utils';
 
 // Interface for the cmponent props
 export interface Props  {
 	img: string;
-	innerRef?: React.MutableRefObject<null>,
+	innerRef?: React.MutableRefObject<null>;
 }
 
 const Home:React.FC<Props> = ({ img, innerRef }) => {
@@ -29,23 +30,23 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 	const logoRef = useRef() as React.MutableRefObject<HTMLImageElement>;
 
 	// Function to hide the elements when exit the component
-	const hideGsap = (elem) => {
-		gsap.to(elem, {
-			autoAlpha: 0,
-			// backgroundColor: "transparent",
-			immediateRender: false,
-			scrollTrigger: {
-				trigger: elem,
-				// markers: true,
-				start: "bottom 20%",
-				end: "bottom start",
-				toggleActions: "play complete reverse complete",
-				scrub: true
-			}
-		})
-	}
+	// const hideGsap = (elem) => {
+	// 	gsap.to(elem, {
+	// 		autoAlpha: 0,
+	// 		// backgroundColor: "transparent",
+	// 		immediateRender: false,
+	// 		scrollTrigger: {
+	// 			trigger: elem,
+	// 			// markers: true,
+	// 			start: "bottom 20%",
+	// 			end: "bottom start",
+	// 			toggleActions: "play complete reverse complete",
+	// 			scrub: true
+	// 		}
+	// 	})
+	// }
 	
-	// Timeline to show whzen the page is loaded
+	// Timeline to show when the page is loaded
 	useEffect(() => {
 
 		const logo: HTMLImageElement = logoRef.current;
@@ -68,20 +69,20 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 	// Apply the function to make disappear the elements on scroll
 	useEffect(() => {
 		const logo: HTMLImageElement = logoRef.current;
-		hideGsap(logo);
+		hideGsap(logo, "bottom 20%", "bottom start", false);
 	}, [])
 	useEffect(() => {
 		// const logo: HTMLImageElement = logoRef.current;
-		hideGsap(".home__text h2");
+		hideGsap(".home__text h2", "bottom 20%", "bottom start", false);
 	}, [])
 	useEffect(() => {
 		// const logo: HTMLImageElement = logoRef.current;
-		hideGsap(".home__text h3");
+		hideGsap(".home__text h3", "bottom 20%", "bottom start", false);
 	}, [])
 		
 		return (
 
-			<section ref={innerRef} className="home" >
+			<section ref={innerRef} className="home" data-pin="pinSection">
 				<div className="home__image">
 					<img className="home__image-lqip" 
 						style={{ ...lqip, opacity: imgLoaded ? 0 : 100 }}
@@ -96,8 +97,8 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 					<div ref={layoutRef} className="home__image-layout"></div>
 					
 				</div>
-				<div  ref={textRef} className="home__text">
-					<h2>Dom Equithérapie</h2>
+				<div ref={textRef} className="home__text">
+					<h2>Dom Equi-médiation</h2>
 					<h3>Séances de médiation équine en Vendée</h3>
 				</div>
 				<div ref={logoRef} className="home__imageDiv">
