@@ -1,3 +1,5 @@
+@import "../../Sass/variables";
+
 .description {
 	height: 100vh;
 	position: relative;
@@ -29,15 +31,15 @@
 			transform: translate(-50%, -30%);	
 			// opacity: 0;
 			// visibility: hidden;
-			z-index: 100;
-			color: #fff;
-			font-weight: 700;
-			font-family: The Nautigal;
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			// // z-index: 100;
+			// color: #fff;
+			// font-weight: 700;
+			// font-family: The Nautigal;
+			// text-align: center;
+			// display: flex;
+			// flex-direction: column;
+			// justify-content: center;
+			// align-items: center;
 			width: 90%;
 			opacity: 0;
 
@@ -108,12 +110,12 @@
 		&__title {
 			top: 8%;
 			transform: translate(-50%, -8%);	
-			background-color: #c5a69875;
-			border-radius: 10px;
-			backdrop-filter: blur(5px);
-			padding: 15px;
-			width: auto;
-			color: #432a19;
+			// background-color: #c5a69875;
+			// border-radius: 10px;
+			// backdrop-filter: blur(5px);
+			// padding: 15px;
+			// width: auto;
+			// color: $horse-dark;
 		}
 
 
@@ -127,13 +129,13 @@
 			margin-top: 150px;
 			height: 50%;
 			// transform: translateY(-50px);
-		font-size: 2.9rem;
+		font-size: 1.5rem;
 		font-weight: 700;
 
 		&-text {
 
-			color: #432a19;
-			font-family: The Nautigal;
+			color: $horse-dark;
+			font-family: Nunito;
 		}
 		}
 	}

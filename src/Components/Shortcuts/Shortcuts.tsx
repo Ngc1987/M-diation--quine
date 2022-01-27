@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import "./Shortcuts.scss";
 import { StyledDiv } from 'styles/styles';
 import {gsap} from "gsap";

@@ -54,6 +54,7 @@ const ForWho:React.FC<Props> = ({innerRef}) => {
 	  
 	// Listen resize event, and set the state with the actual values
 	useEffect(() => {
+
 		function handleResize() {
 			setDimensions({height: window.innerHeight, width: window.innerWidth})
 		}
@@ -63,6 +64,7 @@ const ForWho:React.FC<Props> = ({innerRef}) => {
 			window.removeEventListener('resize', handleResize)
 		}
 	})
+
 	useEffect(()=> {
 		hideGsap(".forwho__title", "center start-=175%", "bottom start-=199%", false);
 	})
@@ -75,126 +77,31 @@ const ForWho:React.FC<Props> = ({innerRef}) => {
 
 	// Effect for the title of the component
 	useEffect(() => {
+
 		if(dimensions.width > 767 ) {
 			makeAppear(titleRef.current, titleRef.current, "bottom 15%", "bottom -20%", false);
-			// gsap.from(titleRef.current, {
-			// 	opacity: 0,
-			// 	// immediateRender: false,
-			// 	scrollTrigger: {
-			// 		trigger: titleRef.current,
-			// 		markers: true,
-			// 		start: "bottom 25%",
-			// 		end: "bottom -30%",
-			// 		toggleActions: "play complete reverse complete",
-			// 		scrub: 1,
-			// onUpdate: (e) => checkDisabled(e),
-			// 	}
-			// })
-			
 		} else {
 			makeAppear(titleRef.current, titleRef.current, "bottom -10%", "bottom -50%", false);
-			// gsap.from(titleRef.current, {
-			// 	opacity: 0,
-			// 	scrollTrigger: {
-			// 		trigger: titleRef.current,
-			// 		// markers: true,
-			// 		start: "bottom 80%",
-			// 		end: "bottom 40%",
-			// 		toggleActions: "play complete reverse complete",
-			// 		scrub: 1,
-			// onUpdate: (e) => checkDisabled(e),
-			// 	}
-			// })
 		}
 	})
 	
 	useEffect(() => {
+
 		if(dimensions.width > 767 ) {
+
 			makeMove(articleRef.current, articleRef.current, 80, "top -40%", "bottom -180%", false);
-			// gsap.to(articleRef.current, {
-			// 	y: 80,
-			// 	scrollTrigger: {
-			// 		trigger: articleRef.current,
-			// 		// markers: true,
-			// 		start: "top -40%",
-			// 		end: "bottom -180%",
-			// 		toggleActions: "play complete reverse complete",
-			// 		scrub: 1,
-			// 		onUpdate: (e) => checkDisabled(e),
-			// 	}
-			// })
 			makeAppear(articleRef.current, articleRef.current, "top -10%", "center -50%", false);
-			// gsap.from(articleRef.current, {
-				// 	opacity: 0,
-				// 	scrollTrigger: {
-					// 		trigger: articleRef.current,
-					// 		// markers: true,
-					// 		start: "top 25%",
-					// 		end: "center -50%",
-					// 		toggleActions: "play complete reverse complete",
-					// 		scrub: 1,
-					// onUpdate: (e) => checkDisabled(e),
-					// 	}
-					// })
-					
-				} else {
+			} else {
 			makeAppear(articleRef.current, articleRef.current, "top -10%", "top -40%", false);
-			// gsap.from(articleRef.current, {
-			// 	opacity: 0,
-			// 	// y: 0,
-			// 	scrollTrigger: {
-			// 		trigger: articleRef.current,
-			// 		// markers: true,
-			// 		start: "top 60%",
-			// 		end: "top 30%",
-			// 		toggleActions: "play complete reverse complete",
-			// 		scrub: 1,
-			// 		onUpdate: (e) => checkDisabled(e),
-			// 	}
-			// })
 		}
 	})
 	useEffect(() => {
+
 		if(dimensions.width > 767 ) {
+			
 			makeMove(imageDivRef.current, articleRef.current, 0, "top 25%", "bottom -180%", false);
-			// 		gsap.to(imageDivRef.current, {
-				// 			y: 0,
-				// 			scrollTrigger: {
-					// 				trigger: articleRef.current,
-					// 				// markers: true,
-					// 				start: "top 25%",
-					// 				end: "bottom -180%",
-					// 				toggleActions: "play complete reverse complete",
-					// 				scrub: 1,
-	// 		onUpdate: (e) => checkDisabled(e),
-	// 	}
-	// })
-		makeAppear(imageDivRef.current,articleRef.current, "top -10%", "center -50%", false);
-			// gsap.from(imageDivRef.current, {
-				// 	opacity: 0,
-				// 	scrollTrigger: {
-					// 		trigger: articleRef.current,
-					// 		// markers: true,
-			// 		start: "top -30%",
-			// 		end: "center -50%",
-			// 		toggleActions: "play complete reverse complete",
-			// 		scrub: 1,
-			// onUpdate: (e) => checkDisabled(e),
-			// 	}
-			// })
+			makeAppear(imageDivRef.current,articleRef.current, "top -10%", "center -50%", false);
 			makeMove(imageRef2.current, imageRef2.current, -20, "top -60%", "center -150%", false);
-			// gsap.to(imageRef2.current, {
-			// 	y: -20,
-			// 	scrollTrigger: {
-			// 		trigger: imageRef2.current,
-			// 		// markers: true,
-			// 		start: "top -60%",
-			// 		end: "center -150%",
-			// 		toggleActions: "play complete reverse complete",
-			// 		scrub: 1,
-			// 		onUpdate: (e) => checkDisabled(e),
-			// 	}
-			// })
 		} else {
 			makeAppear(imageDivRef.current, articleRef.current, "top 60%", "center 10%", false);
 		}

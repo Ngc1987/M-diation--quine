@@ -1,0 +1,21 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100vh;
+	z-index: 250;
+
+	&__title {
+		font-family: The Nautigal;
+		font-size: 6.5rem;
+		margin-top: 50px;
+		margin-left: 50px;
+	}
+	&__place {
+		font-family: The Nautigal;
+		font-size: 4.5rem;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+}

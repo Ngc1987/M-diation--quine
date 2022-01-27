@@ -28,23 +28,6 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 	const textRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const layoutRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const logoRef = useRef() as React.MutableRefObject<HTMLImageElement>;
-
-	// Function to hide the elements when exit the component
-	// const hideGsap = (elem) => {
-	// 	gsap.to(elem, {
-	// 		autoAlpha: 0,
-	// 		// backgroundColor: "transparent",
-	// 		immediateRender: false,
-	// 		scrollTrigger: {
-	// 			trigger: elem,
-	// 			// markers: true,
-	// 			start: "bottom 20%",
-	// 			end: "bottom start",
-	// 			toggleActions: "play complete reverse complete",
-	// 			scrub: true
-	// 		}
-	// 	})
-	// }
 	
 	// Timeline to show when the page is loaded
 	useEffect(() => {
@@ -52,19 +35,10 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 		const logo: HTMLImageElement = logoRef.current;
 		const HomeTL = gsap.timeline();
 		HomeTL.to(layoutRef.current, {
-			backgroundColor: "rgba(0, 0, 0, 0.507)",
-			duration: 1.5,
+			backgroundColor: "rgba(0, 0, 0, 0.507)", duration: 1.5,
 		})
-		.to(logo, {
-			autoAlpha: 1,
-			delay: 1,
-			duration: 2,
-			})
-		.to(textRef.current, {
-			autoAlpha: 1,
-			duration: 1,
-			stagger: 0.5
-			}, "-=1.3")
+		.to(logo, {autoAlpha: 1, delay: 1, duration: 2})
+		.to(textRef.current,{autoAlpha: 1, duration: 1, stagger: 0.5}, "-=1.3")
 	},[])
 	// Apply the function to make disappear the elements on scroll
 	useEffect(() => {
