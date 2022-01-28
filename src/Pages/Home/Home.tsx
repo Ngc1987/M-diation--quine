@@ -39,20 +39,20 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 		})
 		.to(logo, {autoAlpha: 1, delay: 1, duration: 2})
 		.to(textRef.current,{autoAlpha: 1, duration: 1, stagger: 0.5}, "-=1.3")
-	},[])
+	})
 	// Apply the function to make disappear the elements on scroll
-	useEffect(() => {
-		const logo: HTMLImageElement = logoRef.current;
-		hideGsap(logo, "bottom 20%", "bottom start", false);
-	}, [])
-	useEffect(() => {
-		// const logo: HTMLImageElement = logoRef.current;
-		hideGsap(".home__text h2", "bottom 20%", "bottom start", false);
-	}, [])
-	useEffect(() => {
-		// const logo: HTMLImageElement = logoRef.current;
-		hideGsap(".home__text h3", "bottom 20%", "bottom start", false);
-	}, [])
+	// useEffect(() => {
+	// 	const logo: HTMLImageElement = logoRef.current;
+	// 	hideGsap(logo, "bottom 20%", "bottom start", false);
+	// })
+	// useEffect(() => {
+	// 	// const logo: HTMLImageElement = logoRef.current;
+	// 	hideGsap(".home__text h2", "bottom 20%", "bottom start", true);
+	// })
+	// useEffect(() => {
+	// 	// const logo: HTMLImageElement = logoRef.current;
+	// 	hideGsap(".home__text h3", "bottom 20%", "bottom start", false);
+	// })
 		
 		return (
 

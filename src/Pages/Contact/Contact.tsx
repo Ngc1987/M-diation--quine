@@ -1,9 +1,13 @@
 import React from 'react';
 import ContactForm from 'Components/Form/Form';
 import Map from 'Components/Map/Map';
-import "./Contact.scss"
+import "./Contact.scss";
 
-const Contact = () => {
+export interface Props  {
+	checkDisabled?: (self: any) => void;
+}
+
+const Contact:React.FC<Props> = () => {
 	return (
 		<div className='contact'>
 			<h3 className='contact__title'>Contact</h3>

@@ -5,13 +5,16 @@ import { StyledDiv } from '../../styles/styles';
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "Greensock/utils";
+import ImageSection from "Components/ImageSection/ImageSection";
+import Title from "Components/Title/Title";
 
 // Interface for the cmponent props
 export interface Props  {
 	innerRef?: React.MutableRefObject<null>;
+	checkDisabled?: (self: any) => void;
 }
 
-const ForWho:React.FC<Props> = ({innerRef}) => {
+const ForWho:React.FC<Props> = ({innerRef, checkDisabled}) => {
 
 	// Init the scrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
@@ -21,36 +24,12 @@ const ForWho:React.FC<Props> = ({innerRef}) => {
 	const articleRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const imageDivRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const imageRef2 = useRef() as React.MutableRefObject<HTMLImageElement>;
-	
 
 	// state for the window size, differents animations displayed for desktop or mobile device
 	const [dimensions, setDimensions] = useState({ 
 		height: window.innerHeight,
 		width: window.innerWidth
 	})
-
-	// Function to hide the elements when exit the component
-	// const hideGsap = (elem) => {
-	// 	gsap.fromTo(elem, 
-	// 		{
-	// 			opacity: 1
-	// 		},
-	// 		{
-	// 		// autoAlpha: 0,
-	// 		// backgroundColor: "transparent",
-	// 		// 
-	// 		scrollTrigger: {
-	// 			trigger: elem,
-	// 			// markers: true,
-	// 			start: "center start-=175%",
-	// 			end: "bottom start-=199%",
-	// 			// toggleActions: "play complete reverse complete",
-	// 			scrub: true,
-	// 		onUpdate: (e) => checkDisabled(e),
-	// 		},
-	// 		opacity: 0
-	// 	})
-	// }
 	  
 	// Listen resize event, and set the state with the actual values
 	useEffect(() => {
@@ -63,68 +42,76 @@ const ForWho:React.FC<Props> = ({innerRef}) => {
 		return () => {
 			window.removeEventListener('resize', handleResize)
 		}
-	})
-
-	useEffect(()=> {
-		hideGsap(".forwho__title", "center start-=175%", "bottom start-=199%", false);
-	})
-	useEffect(()=> {
-		hideGsap(".forwho__image", "center start-=175%", "bottom start-=199%", false);
-	})
-	useEffect(()=> {
-		hideGsap(".forwho__article", "center start-=175%", "bottom start-=199%", false);
-	})
-
+	}, [])
+	
 	// Effect for the title of the component
 	useEffect(() => {
-
+		
 		if(dimensions.width > 767 ) {
-			makeAppear(titleRef.current, titleRef.current, "bottom 15%", "bottom -20%", false);
+			makeAppear(titleRef.current, titleRef.current, "bottom 15%", "bottom -20%", false, checkDisabled);
 		} else {
-			makeAppear(titleRef.current, titleRef.current, "bottom -10%", "bottom -50%", false);
+			makeAppear(titleRef.current, titleRef.current, "bottom -10%", "bottom -50%", false, checkDisabled);
 		}
-	})
+	}, [checkDisabled, dimensions.width])
 	
 	useEffect(() => {
-
+		
 		if(dimensions.width > 767 ) {
 
 			makeMove(articleRef.current, articleRef.current, 80, "top -40%", "bottom -180%", false);
-			makeAppear(articleRef.current, articleRef.current, "top -10%", "center -50%", false);
-			} else {
-			makeAppear(articleRef.current, articleRef.current, "top -10%", "top -40%", false);
-		}
-	})
-	useEffect(() => {
+			makeAppear(articleRef.current, articleRef.current, "top -10%", "center -30%", false, checkDisabled);
 
+		} else {
+				makeAppear(articleRef.current, articleRef.current, "top -10%", "top -40%", false, checkDisabled);
+		}
+	}, [checkDisabled, dimensions.width])
+
+	useEffect(() => {
+		
 		if(dimensions.width > 767 ) {
 			
 			makeMove(imageDivRef.current, articleRef.current, 0, "top 25%", "bottom -180%", false);
-			makeAppear(imageDivRef.current,articleRef.current, "top -10%", "center -50%", false);
+			makeAppear(imageDivRef.current,articleRef.current, "top -10%", "center -30%", false, checkDisabled);
 			makeMove(imageRef2.current, imageRef2.current, -20, "top -60%", "center -150%", false);
-		} else {
-			makeAppear(imageDivRef.current, articleRef.current, "top 60%", "center 10%", false);
-		}
-	})
-	return (
 
+		} else {
+			makeAppear(imageDivRef.current, articleRef.current, "top 60%", "center 10%", false, checkDisabled);
+		}
+	}, [checkDisabled, dimensions.width])
+
+	// useEffect(()=> {
+	// 	hideGsap(".forwho__title", "center start-=175%", "bottom start-=199%", false);
+	// }, [])
+	// useEffect(()=> {
+	// 	hideGsap(".forwho__image", "center start-=175%", "bottom start-=199%", false);
+	// }, [])
+	// useEffect(()=> {
+	// 	hideGsap(".forwho__article", "center start-=175%", "bottom start-=199%", false);
+	// }, [])
+
+	return (
+		
 		<section ref={innerRef} className="forwho" data-pin="pinSection" >
 
-			<div ref={imageDivRef} className="forwho__image">
-				<img ref={imageRef2} src={"/assets/forwho.jpg"} alt="deux chevaux face à deux personnes" />
-			</div>
+			<ImageSection 
+				innerRef={imageDivRef} 
+				innerRef2={imageRef2} 
+				className="forwho__image" 
+				src={"/assets/forwho.jpg"} 
+				alt="deux chevaux face à deux personnes" />
 
-			<div ref={titleRef} className="forwho__title">
-				<h2>La médiation équine</h2>
-				<h3>Oui mais pour qui ?</h3>
-			</div>
+			<Title 
+				innerRef={titleRef} 
+				className="forwho__title" 
+				title="La médiation équine" 
+				subtitle="Oui mais pour qui ?"/>
 
 			<div ref={articleRef} className="forwho__article" >
-				<StyledDiv className="forwho__article-text">
-					Enfants, ados, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles ou cognitives, des troubles du spectre autistique, ou en difficulté sociale ou familiale.
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur quaerat eos molestias voluptatum harum praesentium aut hic incidunt minima quo quibusdam ipsum vero laudantium iste facere esse, dolorem sequi magni excepturi, velit ab obcaecati libero alias! Dolorum numquam vel, quia dolor tempora delectus laudantium. Id numquam at cum! Reiciendis, quibusdam.</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit sit quibusdam aut eos. Aliquid veniam voluptate, temporibus soluta modi dolorem ipsam? Commodi, culpa sit. Non nihil et aspernatur ratione saepe.</p>
-				</StyledDiv>
+				<div className="forwho__article-text">
+					<p>La médiation équine s'adresse bien sûr à tout le monde, enfant, ado, ou adulte, dans ses dimensions psychiques et corporelles </p>
+					<p>Les soins peuvent concerner des difficultés d'apprentissage, des difficultés intellectuelles et cognitives, des troubles du spectre autistique, mais aussi des difficultés psychiques (dépression, anxiété, manque de confiance en soi, troubles des comportements alimentaires, addiction, désorientation)</p>
+					<p></p>
+				</div>
 			</div>
 
 		</section>

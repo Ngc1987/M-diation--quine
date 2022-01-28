@@ -26,5 +26,5 @@
     "strictNullChecks": true /* Enable strict null checks. */,
     "allowJs": true /* Allow javascript files to be compiled. */
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
 }

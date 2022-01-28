@@ -8,19 +8,9 @@
 	&__image {
 		height: 50%;
 		width: 100%;
-		overflow: hidden;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		opacity: 0;
+		// opacity: 1;
 
-		img {
-			min-width: 100%;
-			height: 100%;
-			object-fit: cover;
-			z-index: 10;
-			filter: brightness(60%);
-		}
+		
 	}
 
 	&__title {
@@ -29,7 +19,7 @@
 			top: 30%;
 			left: 50%;
 			transform: translate(-50%, -30%);	
-			// opacity: 0;
+			// opacity: 1;
 			// visibility: hidden;
 			// // z-index: 100;
 			// color: #fff;
@@ -40,17 +30,17 @@
 			// flex-direction: column;
 			// justify-content: center;
 			// align-items: center;
-			width: 90%;
-			opacity: 0;
+			// width: 90%;
+			// opacity: 1;
 
-			h2 {
-				font-size: 6.5rem;
-				width: fit-content;
-			}
-			h3 {
-				font-size: 4.5rem;
-				width: fit-content;
-			}
+			// h2 {
+			// 	font-size: 6.5rem;
+			// 	width: fit-content;
+			// }
+			// h3 {
+			// 	font-size: 4.5rem;
+			// 	width: fit-content;
+			// }
 	}
 
 	&__article {
@@ -64,7 +54,7 @@
 		text-align: center;
 		width: 80%;
 		padding: 50px 0;
-		opacity: 0;
+		// opacity: 1;
 		// opacity: 0;
 		// visibility: hidden;
 
@@ -86,25 +76,24 @@
 		align-items: center;
 
 		&__image {
-			height: 40%;
-			width: 40%;
-			border: 2px solid #fff;
-			box-shadow: 5px 5px  15px rgba(0, 0, 0, 0.61);
-			border-radius: 10px;
-			margin-top: 150px;
 			height: 50%;
-			transform: translateY(100px);
+			width: 40%;
+			// border: 2px solid #fff;
+			// box-shadow: 5px 5px  15px rgba(0, 0, 0, 0.61);
+			// border-radius: 10px;
+			// margin-top: 150px;
+			// transform: translateY(100px);
 			// opacity: 0;
 			// visibility: hidden;
 
-			img {
+			// img {
 
-			min-width: 120%;
-			height: 120%;
-				filter: brightness(100%);
-				// transform: scale(1.3);
-				transform: translateY(20px);
-			}
+			// min-width: 120%;
+			// height: 120%;
+			// 	filter: brightness(100%);
+			// 	// transform: scale(1.3);
+			// 	transform: translateY(20px);
+			// }
 		}
 
 		&__title {
@@ -129,14 +118,19 @@
 			margin-top: 150px;
 			height: 50%;
 			// transform: translateY(-50px);
-		font-size: 1.5rem;
-		font-weight: 700;
+			font-size: 1.4rem;
+			font-weight: 600;
+			border-radius: 10px;
+			border: 2px solid #fff;
+			box-shadow: 5px 5px  15px rgba(0, 0, 0, 0.61);	
+			background-color: #c5a69830;
+			backdrop-filter: blur(2px);
+			padding: 10px;
 
-		&-text {
-
-			color: $horse-dark;
-			font-family: Nunito;
-		}
+			&-text {
+				color: $horse-dark;
+				font-family: Nunito;
+			}
 		}
 	}
 }

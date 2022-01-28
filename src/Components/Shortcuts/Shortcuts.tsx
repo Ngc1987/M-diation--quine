@@ -6,6 +6,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import "./Shortcuts.scss";
 import { StyledDiv } from 'styles/styles';
 import {gsap} from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 const faPropIcon = faUserCircle as IconProp;
@@ -17,16 +18,16 @@ export interface Props  {
 
 
 const Shortcuts:React.FC<Props> = ({anchorLink}) => {
-	gsap.registerPlugin(ScrollToPlugin);
+	gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-	//scroll #someID into view with 50 pixels from the top (like a margin)
-	// const link = (e) => {
-	// 	console.log(e)
-	// 	return gsap.to(window, {duration: .5, scrollTo: {y: ".parcours", offsetY: -50}});
+	// const anchorLink = (event: any):void =>   {
+	// 	// console.log(event)
+	// 	gsap.to(window, {
+	// 		// onStart: () => setDisabled(true),
+	// 		// onComplete: () => setDisabled(false),
+	// 		scrollTo: event.target.getAttribute("data-pin")
+	// 		});
 	// }
-
-
-
 
 	return (
 		<StyledDiv className="shortcuts" >

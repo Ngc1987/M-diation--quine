@@ -1,0 +1,35 @@
+.image {
+
+
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	img {
+			min-width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: 10;
+			filter: brightness(60%);
+		}
+}
+
+@media screen and (min-width: 768px) {
+	.image {
+
+			border: 2px solid #fff;
+			box-shadow: 5px 5px  15px rgba(0, 0, 0, 0.61);
+			border-radius: 10px;
+			transform: translateY(100px);
+			margin-top: 150px;
+
+			img {
+				min-width: 120%;
+				height: 120%;
+				filter: brightness(100%);
+				// transform: scale(1.3);
+				transform: translateY(20px);
+			}
+	}
+}
