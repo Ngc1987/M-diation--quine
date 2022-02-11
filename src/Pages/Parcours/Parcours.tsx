@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "Greensock/utils";
 import ImageSection from "Components/ImageSection/ImageSection";
 import Title from "Components/Title/Title";
+// import { SmoothProvider } from 'react-smooth-scrolling';
 
 // Interface for the cmponent props
 export interface Props  {
@@ -26,6 +27,7 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	const articleRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const imageDivRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const imageRef2 = useRef() as React.MutableRefObject<HTMLImageElement>;
+	const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	
 
 	// state for the window size, differents animations displayed for desktop or mobile device
@@ -47,33 +49,33 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	}, [])
 
 	// Effect for the title of the component
-	useEffect(() => {
-		if(dimensions.width > 767 ) {
-			makeAppear(titleRef.current, titleRef.current, "bottom -85%", "bottom -110%", false, checkDisabled);
-		} else {
-			makeAppear(titleRef.current, titleRef.current, "bottom -120%", "bottom -160%", false, checkDisabled);
-		}
-	}, [checkDisabled, dimensions.width])
+	// useEffect(() => {
+	// 	if(dimensions.width > 767 ) {
+	// 		makeAppear(titleRef.current, titleRef.current, "bottom -85%", "bottom -110%", false, checkDisabled);
+	// 	} else {
+	// 		makeAppear(titleRef.current, titleRef.current, "bottom -120%", "bottom -160%", false, checkDisabled);
+	// 	}
+	// }, [checkDisabled, dimensions.width])
 	
-	useEffect(() => {
-		if(dimensions.width > 767 ) {
-			makeMove(articleRef.current, articleRef.current, 80, "top -140%", "bottom -280%", false);
-			makeAppear(articleRef.current, articleRef.current, "top -110%", "center -130%", false, checkDisabled);
+	// useEffect(() => {
+	// 	if(dimensions.width > 767 ) {
+	// 		makeMove(articleRef.current, articleRef.current, 80, "top -140%", "bottom -280%", false);
+	// 		makeAppear(articleRef.current, articleRef.current, "top -110%", "center -130%", false, checkDisabled);
 			
-		} else {
-			makeAppear(articleRef.current, articleRef.current, "top -120%", "top -160%", false, checkDisabled);
-		}
-	}, [checkDisabled, dimensions.width])
+	// 	} else {
+	// 		makeAppear(articleRef.current, articleRef.current, "top -120%", "top -160%", false, checkDisabled);
+	// 	}
+	// }, [checkDisabled, dimensions.width])
 
-	useEffect(() => {
-		if(dimensions.width > 767 ) {
-			makeMove(imageDivRef.current, articleRef.current, 0, "top -140%", "bottom -280%", false);
-			makeAppear(imageDivRef.current,articleRef.current, "top -110%", "center -130%", false, checkDisabled);
-			makeMove(imageRef2.current, imageRef2.current, -20, "top -160%", "center -250%", false);
-		} else {
-			makeAppear(imageDivRef.current, articleRef.current, "top -70%", "center -110%", false, checkDisabled);
-		}
-	}, [checkDisabled, dimensions.width])
+	// useEffect(() => {
+	// 	if(dimensions.width > 767 ) {
+	// 		makeMove(imageDivRef.current, articleRef.current, 0, "top -140%", "bottom -280%", false);
+	// 		makeAppear(imageDivRef.current,articleRef.current, "top -110%", "center -130%", false, checkDisabled);
+	// 		makeMove(imageRef2.current, imageRef2.current, -20, "top -160%", "center -250%", false);
+	// 	} else {
+	// 		makeAppear(imageDivRef.current, articleRef.current, "top -70%", "center -110%", false, checkDisabled);
+	// 	}
+	// }, [checkDisabled, dimensions.width])
 
 	// useEffect(()=> {
 	// 	hideGsap(".parcours__title", "center start-=275%", "bottom start-=295%", false);
@@ -85,32 +87,65 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	// 	hideGsap(".parcours__article", "center start-=275%", "bottom start-=300%", false);
 	// }, [])
 
-	return (
-		<section data-scroll-section ref={innerRef} className="parcours" data-pin="pinSection" >
+	useEffect(() => {
+		gsap.from(titleRef.current, {
+			y: 5,
+			opacity: 0,
+			duration: 0.6
+		})
+	}, [])
+	useEffect(() => {
+		gsap.from(contentRef.current, {
+			// y:10,	
+			opacity: 0,
+			duration: 1,
+			delay: 0.3
+		})
+	}, [])
 
-			<ImageSection 
-				innerRef={imageDivRef} 
-				innerRef2={imageRef2} 
-				className="parcours__image" 
-				src={"/assets/parcours.jpg"} 
-				alt="deux chevaux face à deux personnes" />
+	return (
+		// <SmoothProvider skew={false}>
+		<section data-scroll-section ref={innerRef} className="parcours" data-pin="pinSection" >
 
 			<Title 
 				innerRef={titleRef} 
 				className="parcours__title" 
-				title="Qui suis-je ?" 
-				subtitle="Mon parcours"
+				title="Mon parcours" 
+				// subtitle="Mon parcours"
 				/>
 
-			<div ref={articleRef} className="parcours__article" >
-				<div className="parcours__article-text" >
-					Enfants, ados, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles ou cognitives, des troubles du spectre autistique, ou en difficulté sociale ou familiale.
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur quaerat eos molestias voluptatum harum praesentium aut hic incidunt minima quo quibusdam ipsum vero laudantium iste facere esse, dolorem sequi magni excepturi, velit ab obcaecati libero alias! Dolorum numquam vel, quia dolor tempora delectus laudantium. Id numquam at cum! Reiciendis, quibusdam.</p>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit sit quibusdam aut eos. Aliquid veniam voluptate, temporibus soluta modi dolorem ipsam? Commodi, culpa sit. Non nihil et aspernatur ratione saepe.</p>
+			<div ref={contentRef} className="parcours__content">
+				<ImageSection 
+					innerRef={imageDivRef} 
+					innerRef2={imageRef2} 
+					className="parcours__content-image" 
+					src={"/assets/parcours.jpg"} 
+					alt="deux chevaux face à deux personnes" />
+
+
+				<div ref={articleRef} className="parcours__content-article" >
+					<p>
+						Depuis toujours passionnée par cet animal qu'est le cheval, j'ai passé un monitorat d'équitation (BEES 1er degré) en 1992. 
+					</p>
+					<br />
+					<p>
+						De par mes diverses expériences professionnelles, j'ai cotoyé un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales)
+					</p>
+					<br />
+					<p>
+						Je suis actuellement aide médico-psychologique depuis plus de 10 ans dans un IME (institut médico-éducatif) à Olonne sur Mer.
+					</p>
+					<br />
+					<p>
+						Au sein de l'IME, nous possédons 2 poneys, ce qui m'a permis de pratiquer la médiation équine pendant quelques années auprès des jeunes pensionnaires, et de confirmer mon envie de me former en tant que praticienne en médiation équine. 
+					</p>
+					<br />
+					<p>Ce que j'ai enfin fais en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
 				</div>
 			</div>
 
 		</section>
+		// {/* </SmoothProvider> */}
 	)
 }
 

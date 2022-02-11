@@ -11,12 +11,14 @@
 	.background {
 		position: fixed;
 		inset: 0;
-		min-width: 100vw;
+		width: 100vw;
 		height: 100vh;
 		object-fit: cover;
 		opacity: 0.6;
 		z-index: -10;
 		margin-bottom: 20px;
+		// filter: brightness(95%)
+		// opacity: 0.4;
 	}
 
 	&__imageDiv {

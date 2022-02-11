@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./Slider.scss";
 import { dataSlider } from './dataSlider';
 import BtnSlider from './BtnSlider';
+import Title from 'Components/Title/Title';
 
 
 interface slider {
@@ -56,21 +57,25 @@ const Slider: React.FC = () => {
 	}
 
 	return (
-		<div className='container-slider'>
-			{dataSlider.map((obj, index) => {
-				return (
-					<div
+		<div className="gallery">
+			<Title title="Galerie" className='gallery__title' />
+			<div className='gallery__slider'>
+				{dataSlider.map((obj, index) => {
+					return (
+						<div
 						key={index}
 						className={slideAnim.index === index + 1 ?
-							"slide active-anim" : "slide"}
-					>
-						<img src={process.env.PUBLIC_URL + `/assets/sliderImgs/img${index+1}.jpg`} alt="" />
-					</div>
-				)
-			})}
+									"slide active-anim" : "slide"}
+									>
+								
+								<img src={process.env.PUBLIC_URL + `/assets/sliderImgs/img${index+1}.jpg`} alt="" />
+							</div>
+					)
+				})}
 
-			<BtnSlider moveSlide={nextSlide} direction={"next"} />
-			<BtnSlider moveSlide={prevSlide} direction={"prev"} />
+				<BtnSlider moveSlide={nextSlide} direction={"next"} />
+				<BtnSlider moveSlide={prevSlide} direction={"prev"} />
+			</div>
 		</div>
 	)
 };

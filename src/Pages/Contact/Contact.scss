@@ -3,19 +3,68 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	height: 100vh;
+	// height: 100vh;
 	z-index: 250;
+	margin-top: 30px;
+	margin-bottom: 100px;
 
 	&__title {
 		font-family: The Nautigal;
-		font-size: 6.5rem;
-		margin-top: 50px;
-		margin-left: 50px;
+
+		h2 {
+			font-size: 4rem;
+		}
 	}
 	&__place {
 		font-family: The Nautigal;
-		font-size: 4.5rem;
 		margin-bottom: 20px;
 		margin-top: 20px;
+
+		h2 {
+			font-size: 4rem;
+		}
+	}
+}
+
+@media screen and (min-width: 390px) {
+	.contact {
+		margin-top: -20px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	.contact {
+
+		&__title {
+
+			margin-top: 50px;
+
+			h2 {
+				font-size: 5.5rem;
+			}
+		}
+
+		&__place {
+
+			h2 {
+				font-size: 5.5rem;
+			}
+		}
+
+		&__content {
+			margin-top: 30px;
+
+			&-image {
+				height: 350px;
+			}
+		}
+
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.contact {
+		// flex-direction: row;
 	}
 }

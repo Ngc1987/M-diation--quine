@@ -8,6 +8,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "Greensock/utils";
 
+// import { SmoothProvider } from 'react-smooth-scrolling'
+
 // Interface for the cmponent props
 export interface Props  {
 	innerRef?: React.MutableRefObject<null>;
@@ -24,6 +26,7 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	const articleRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const imageDivRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const imageRef2 = useRef() as React.MutableRefObject<HTMLImageElement>;
+	const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	
 	// console.log(titleRef)
 	// state for the window size, differents animations displayed for desktop or mobile device
@@ -55,56 +58,80 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	// }, [])
 
 	// Effect for the title of the component
-	useEffect(() => {
-		if(dimensions.width > 767 ) {
-			makeAppear(titleRef.current, titleRef.current, "center 95%", "center 85%", false, checkDisabled);
-		} else {
-			makeAppear(titleRef.current, titleRef.current, "bottom 70%", "bottom 30%", false, checkDisabled);
-		}
-	}, [checkDisabled, dimensions.width])
+	// useEffect(() => {
+	// 	if(dimensions.width > 767 ) {
+	// 		makeAppear(titleRef.current, titleRef.current, "center 95%", "center 85%", false, checkDisabled);
+	// 	} else {
+	// 		makeAppear(titleRef.current, titleRef.current, "bottom 70%", "bottom 30%", false, checkDisabled);
+	// 	}
+	// }, [checkDisabled, dimensions.width])
 	
+	// useEffect(() => {
+	// 	if(dimensions.width > 767 ) {
+	// 		makeMove(articleRef.current, articleRef.current, 80, "top 60%", "bottom -80%", false);
+	// 		makeAppear(articleRef.current, articleRef.current, "top 75%", "top 60%", false, checkDisabled);
+	// 	} else {
+	// 		makeAppear(articleRef.current, articleRef.current, "top 60%", "top 30%", false, checkDisabled);
+	// 	}
+	// }, [checkDisabled, dimensions.width])
+	// useEffect(() => {
+	// 	if(dimensions.width > 767 ) {
+	// 		makeMove(imageDivRef.current, articleRef.current, 0, "top 60%", "bottom -80%", false)
+	// 		makeAppear(imageDivRef.current, articleRef.current, "top 75%", "top 60%", false, checkDisabled);
+	// 		makeMove(imageRef2.current, imageRef2.current, 0, "top 40%", "center -50%", false)
+	// 	}else {
+	// 		makeAppear(imageDivRef.current, imageDivRef.current, "top 80%", "center 40%", false, checkDisabled);
+	// 	}
+	// }, [checkDisabled, dimensions.width])
+
 	useEffect(() => {
-		if(dimensions.width > 767 ) {
-			makeMove(articleRef.current, articleRef.current, 80, "top 60%", "bottom -80%", false);
-			makeAppear(articleRef.current, articleRef.current, "top 75%", "top 60%", false, checkDisabled);
-		} else {
-			makeAppear(articleRef.current, articleRef.current, "top 60%", "top 30%", false, checkDisabled);
-		}
-	}, [checkDisabled, dimensions.width])
+		gsap.from(titleRef.current, {
+			y: 5,
+			opacity: 0,
+			duration: 0.6
+		})
+	}, [])
 	useEffect(() => {
-		if(dimensions.width > 767 ) {
-			makeMove(imageDivRef.current, articleRef.current, 0, "top 60%", "bottom -80%", false)
-			makeAppear(imageDivRef.current, articleRef.current, "top 75%", "top 60%", false, checkDisabled);
-			makeMove(imageRef2.current, imageRef2.current, 0, "top 40%", "center -50%", false)
-		}else {
-			makeAppear(imageDivRef.current, imageDivRef.current, "top 80%", "center 40%", false, checkDisabled);
-		}
-	}, [checkDisabled, dimensions.width])
+		gsap.from(contentRef.current, {
+			// y:10,	
+			opacity: 0,
+			duration: 1,
+			delay: 0.3
+		})
+	}, [])
 	
 	return (
 
 		<section data-scroll-section ref={innerRef} className="description" data-pin="pinSection" >
 
-			<ImageSection 
-				innerRef={imageDivRef} 
-				innerRef2={imageRef2} 
-				className="description__image" 
-				src={"/assets/description.jpg"} 
-				alt="deux chevaux face à deux personnes" />
-			
 			<Title 
 				innerRef={titleRef} 
 				className="description__title" 
 				title="La médiation équine" 
 				subtitle="Qu'est-ce que c'est ?"/>
 
-			<div ref={articleRef} className="description__article" >
-				<div className="description__article-text">
-					<p>La médiation équine est un soin donné par un professionnel de santé formé à la relation d'aide, facilité par la présence d'un cheval ou d'un poney.</p>
-					<p>La médiation équine utilise le cheval comme médiateur thérapeutique, afin de traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
-					<p>On dit que le cheval est notre mirroir, il reflète nos émotions et nos ressentis.</p>
-					<p>L’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. Ce compagnon de thérapie agit comme un miroir pour le patient. Ses peurs, ses angoisses se reflètent sur sa manière de communiquer et d’interagir avec l’animal. Le thérapeute interprète alors les différents problèmes dont souffre son patient et tente par l’intermédiaire du cheval d’y apporter des solutions. Lorsque le cavalier comprend le fonctionnement de son cheval, il comprend son propre fonctionnement</p>
+			<div ref={contentRef} className="description__content">
+				<ImageSection 
+					innerRef={imageDivRef} 
+					innerRef2={imageRef2} 
+					className="description__content-image" 
+					src={"/assets/description.jpg"} 
+					alt="deux chevaux face à deux personnes" />
+				
+
+				<div ref={articleRef} className="description__content-article" >
+						<p>La médiation équine est un soin donné par un professionnel de santé formé à la relation d'aide, facilité par la présence d'un cheval ou d'un poney.</p>
+						<br />
+						<p>La médiation équine utilise le cheval comme médiateur thérapeutique, afin de traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
+						<br />
+						<p>On dit que le cheval est notre mirroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
+						<br />
+						<p>L’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. C'est une démarche de soin et un processus créateur. Le cheval fait lien vers le patient, c'est la tension entre le patient qui tend vers le désir et le thérapeute qui tend vers le désir du patient.</p>
+						<br />
+						<br />
+							<h2>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h2>
 				</div>
+
 			</div>
 
 		</section>

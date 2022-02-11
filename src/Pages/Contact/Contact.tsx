@@ -1,6 +1,8 @@
 import React from 'react';
 import ContactForm from 'Components/Form/Form';
 import Map from 'Components/Map/Map';
+import Title from 'Components/Title/Title';
+
 import "./Contact.scss";
 
 export interface Props  {
@@ -10,9 +12,11 @@ export interface Props  {
 const Contact:React.FC<Props> = () => {
 	return (
 		<div className='contact'>
-			<h3 className='contact__title'>Contact</h3>
+			<Title title="Contact" className="contact__title" />
+			{/* <h3 className='contact__title'>Contact</h3> */}
 			<ContactForm/>
-			<h3 className='contact__place'>Localisation</h3>
+			<Title title="Localisation" className="contact__place" />
+			{/* <h3 className='contact__place'>Localisation</h3> */}
 			<Map/>
 		</div>
 	)

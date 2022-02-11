@@ -5,6 +5,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap } from 'Greensock/utils';
 
+// import { SmoothProvider } from 'react-smooth-scrolling';
+
 // Interface for the cmponent props
 export interface Props  {
 	img: string;
@@ -55,7 +57,7 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 	// })
 		
 		return (
-
+			// <SmoothProvider skew={false}>
 			<section ref={innerRef} className="home" data-pin="pinSection">
 				<div className="home__image">
 					<img className="home__image-lqip" 
@@ -80,6 +82,7 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 
 				</div>
 			</section>
+			// {/* </SmoothProvider> */}
 
 	)
 }

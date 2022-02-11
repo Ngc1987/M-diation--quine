@@ -18,6 +18,7 @@
     "google-map-react": "^2.1.10",
     "gsap": "^3.9.1",
     "react": "^17.0.2",
+    "react-burger-menu": "^3.0.6",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.25.1",
     "react-router-dom": "^6.2.1",
@@ -61,6 +62,8 @@
     "@types/node": "^17.0.13",
     "@types/react-fontawesome": "^1.6.5",
     "glob": "^7.2.0",
+    "hamburger-react": "^2.4.1",
+    "react-smooth-scrolling": "^1.0.2",
     "sharp": "^0.29.3"
   }
 }

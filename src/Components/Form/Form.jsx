@@ -78,8 +78,8 @@ const ContactForm = () => {
 		<>
 			<form onSubmit={handleSubmit(onSubmit)} className="form">
 
-				<label htmlFor="firstName">Prénom</label>
-				<input type="text" id="firstName" name='firstName'
+				<label htmlFor="firstName"></label>
+					<input type="text" id="firstName" name='firstName' placeholder='Prénom'
 					{...register('firstName', {
 						required: { value: true, message: 'Veuillez indiquer votre prénom' },
 						maxLength: {
@@ -89,8 +89,8 @@ const ContactForm = () => {
 					})}/>
 				{errors.firstName && <span className='form__errorMsg'>{errors.firstName.message}</span>}
 
-				<label htmlFor="lastName">Nom</label>
-				<input type="text" id="lastName" name='lastName'
+				<label htmlFor="lastName"></label>
+					<input type="text" id="lastName" name='lastName' placeholder='Nom'
 					{...register('lastName', {
 						required: { value: true, message: 'Veuillez indiquer votre nom' },
 						maxLength: {
@@ -100,8 +100,8 @@ const ContactForm = () => {
 					})} />
 				{errors.lastName && <span className='form__errorMsg'>{errors.lastName.message}</span>}
 
-				<label htmlFor="email" id="email">Email</label>
-				<input type="email" name='email'
+				<label htmlFor="email" id="email"></label>
+					<input type="email" name='email' placeholder='Email'
 					{...register('email', {
 						required: true,
 						pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -110,8 +110,8 @@ const ContactForm = () => {
 					/>
 				{errors.email && (<span className='form__errorMsg'>Veuillez indiquer une adresse email valide</span>)}
 
-				<label htmlFor="message">Message</label>
-				<textarea type="text" id="message" rows={5} 
+				<label htmlFor="message"></label>
+					<textarea type="text" id="message" rows={5} placeholder='Message'
 					name='message'
 					{...register('message', {
 						required: true
