@@ -1,22 +1,31 @@
 import './App.scss';
-import Home from './Pages/Home/Home';
-import Description from './Pages/Description/Description';
-import Parcours from './Pages/Parcours/Parcours';
-import ForWho from './Pages/ForWho/ForWho';
-import Shortcuts from './Components/Shortcuts/Shortcuts';
-import Contact from './Pages/Contact/Contact';
-import MobileNav from 'Components/MobileNav/MobileNav';
-import DesktopNav from 'Components/DesktopNav/DesktopNav';
-import Header from './Components/Header/Header';
+// import Home from './Pages/Home/Home';
+// import Description from './Pages/Description/Description';
+// import Parcours from './Pages/Parcours/Parcours';
+// import ForWho from './Pages/ForWho/ForWho';
+// import Shortcuts from './Components/Shortcuts/Shortcuts';
+// import Contact from './Pages/Contact/Contact';
+// import MobileNav from '../src/Components/MobileNav/MobileNav';
+// import DesktopNav from '../src/Components/DesktopNav/DesktopNav';
+// import Header from './Components/Header/Header';
 // import Map from 'Components/Map/Map';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { makeAppear } from './Greensock/utils';
+// import { makeAppear } from './Greensock/utils';
 import Slider from './Components/Slider/Slider';
 import { Route, Routes } from 'react-router-dom';
+import Loader from '../src/Components/Loader/Loader';
 // import { SmoothProvider } from 'react-smooth-scrolling'
+
+const Description = React.lazy(() => import("./Pages/Description/Description"));
+const Parcours = React.lazy(() => import("./Pages/Parcours/Parcours"));
+const ForWho = React.lazy(() => import("./Pages/ForWho/ForWho"));
+const Contact = React.lazy(() => import("./Pages/Contact/Contact"));
+const MobileNav = React.lazy(() => import("../src/Components/MobileNav/MobileNav"));
+const DesktopNav = React.lazy(() => import("../src/Components/DesktopNav/DesktopNav"));
+const Header = React.lazy(() => import("./Components/Header/Header"));
 
 const App:React.FC = () => {
 
@@ -93,25 +102,28 @@ const App:React.FC = () => {
 
 	return (
 		<div className="App" id="App">
+
+			<img src={process.env.PUBLIC_URL + "./assets/bckg.webp"} alt="Fond d'écran" className="background" />
+			<Suspense fallback={<Loader/>}>
+
 			
-			<img src="./assets/bckg3.jpg" alt="Fond d'écran" className="background" />
-			
+			{/* <Loader/> */}
 			<Header/>
 
 			{dimensions.width > 767 ?
 				<DesktopNav/>
 				:
 				<MobileNav 
-					isOpen={isOpen}
-					setOpen={setOpen}
+				isOpen={isOpen}
+				setOpen={setOpen}
 					onToggle={onToggle}
 					handleOnClose={handleOnClose} />
 			}
 
 			<Routes>
-				<Route path="/parcours" element={<Parcours/>} />
-				<Route path="/pourqui" element={<ForWho/>} />
 				<Route path="/description" element={<Description/>} />
+				<Route path="/pourqui" element={<ForWho/>} />
+				<Route path="/parcours" element={<Parcours/>} />
 				<Route path="/gallerie" element={<Slider/>} />
 				<Route path="/contact" element={<Contact/>} />
 			</Routes>
@@ -121,11 +133,12 @@ const App:React.FC = () => {
 			<ForWho innerRef={forwho}  />
 			<Parcours innerRef={parcours} />
 			<Slider/>
-			<Contact/> */}
+		<Contact/> */}
 
 			{/* <div ref={logoRef} className="App__imageDiv">
 				<img src={"/assets/headLogowebp.webp"} className="App__logo" alt="logo de l'entreprise"></img>
 			</div>y */}
+		</Suspense>
 		</div>
 	);
 }

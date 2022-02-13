@@ -1,12 +1,16 @@
 // import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import "./ForWho.scss";
 import { StyledDiv } from '../../styles/styles';
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { hideGsap, makeAppear, makeMove } from "Greensock/utils";
-import ImageSection from "Components/ImageSection/ImageSection";
-import Title from "Components/Title/Title";
+import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
+import Loader from "../../Components/Loader/Loader";
+// import ImageSection from "../../Components/ImageSection/ImageSection";
+// import Title from "../../Components/Title/Title";
+
+const Title = React.lazy(() => import("../../Components/Title/Title"));
+const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
 // import { SmoothProvider } from 'react-smooth-scrolling';
 
 // Interface for the cmponent props
@@ -92,78 +96,100 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	// 	hideGsap(".forwho__article", "center start-=175%", "bottom start-=199%", false);
 	// }, [])
 
+	// useEffect(() => {
+	// 	gsap.from(titleRef.current, {
+	// 		// y: 5,
+	// 		opacity: 0,
+	// 		duration: 1.5,
+	// 		delay: 0.3
+	// 	})
+	// }, [])
+	// useEffect(() => {
+	// 	gsap.from(contentRef.current, {
+	// 		// y:10,	
+	// 		opacity: 0,
+	// 		duration: 1.5,
+	// 		delay: 0.3
+	// 		// delay: 0.6
+	// 	})
+	// }, [])
+
 	useEffect(() => {
 		gsap.from(titleRef.current, {
-			y: 5,
+			y: 15,
 			opacity: 0,
-			duration: 0.6
+			duration: 0.7,
+			// delay: 0.3
 		})
 	}, [])
 	useEffect(() => {
 		gsap.from(contentRef.current, {
-			// y:10,	
+			y:15,	
 			opacity: 0,
-			duration: 1,
-			delay: 0.3
+			duration: 0.7,
+			delay: 0.5
 		})
 	}, [])
 
 	return (
 		// <SmoothProvider skew={false}>
-		<section ref={innerRef} className="forwho" data-pin="pinSection" >
+		<Suspense fallback={<Loader/>}>
 
-			<Title 
-				innerRef={titleRef} 
-				className="forwho__title" 
-				title="La médiation équine" 
-				subtitle="Oui mais pour qui ?"/>
+			<section ref={innerRef} className="forwho" data-pin="pinSection" >
 
-			<div ref={contentRef} className="forwho__content">
+				<Title 
+					innerRef={titleRef} 
+					className="forwho__title" 
+					title="La médiation équine" 
+					subtitle="Oui mais pour qui ?"/>
 
-				<ImageSection 
-					innerRef={imageDivRef} 
-					innerRef2={imageRef2} 
-					className="forwho__content-image" 
-					src={"/assets/forwho.jpg"} 
-					alt="deux chevaux face à deux personnes" />
+				<div ref={contentRef} className="forwho__content">
+
+					<ImageSection 
+						innerRef={imageDivRef} 
+						innerRef2={imageRef2} 
+						className="forwho__content-image" 
+						src={"/assets/forwho.webp"} 
+						alt="deux chevaux face à deux personnes" />
 
 
-				<div ref={articleRef} className="forwho__content-article" >
-					<p>La médiation équine s'adresse bien sûr à tout le monde, enfants, adolescents, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, ou en difficultés sociales ou familiales dans ses dimensions psychiques et corporelles</p>
-					<br />
-					<p style={{fontSize: "1.8rem"}} >Objectifs de la médiation équine :</p>
-						<ul style={{fontSize: "1.3rem", marginTop: "10px"}}>
-							<li>Solliciter l'attention </li>
-							<li>Encourager les initiatives</li>
-							<li>Faciliter le repérage dans le temps et l'espace</li>
-							<li>Développer la conscience du corps</li>
-							<li>Améliorer l'intime et la confiance en soi</li>
-							<li>Faciliter le partage des émotions</li>
-							<li>Entraîner les capacités de tolérance et d'adaptation au changement</li>
-						</ul>
-					
-					<br />
-					<p style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</p>
+					<div ref={articleRef} className="forwho__content-article" >
+						<p>La médiation équine s'adresse bien sûr à tout le monde, enfants, adolescents, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, ou en difficultés sociales ou familiales dans ses dimensions psychiques et corporelles</p>
 						<br />
-						<ul style={{fontSize: "1.3rem", marginTop: "10px"}}>
-							<li>Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine)</li>
-							<li>A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.</li>
-							<li>Favorise un lien affectif et développe l'empathie.</li>
-							<li>A des effets cardio-vasculaires positifs liés à la détente.</li>
-							<li>Permet de s'épanouir, prendre plaisir, s'exprimer, s'autonomiser, prendre confiance en soi, s'affirmer.</li>
-							<li>Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention</li>
-							<li>Contact doux, agréable à toucher, effet apaisant et structurant.</li>
-							<li>Le cheval a ses propres besoins besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.</li>
-							<li>Un effet physiologique, baisse les hormones du stress...</li>
-						</ul>
+						<p style={{fontSize: "1.8rem"}} >Objectifs de la médiation équine :</p>
+							<ul style={{fontSize: "1.3rem", marginTop: "10px"}}>
+								<li>Solliciter l'attention </li>
+								<li>Encourager les initiatives</li>
+								<li>Faciliter le repérage dans le temps et l'espace</li>
+								<li>Développer la conscience du corps</li>
+								<li>Améliorer l'intime et la confiance en soi</li>
+								<li>Faciliter le partage des émotions</li>
+								<li>Entraîner les capacités de tolérance et d'adaptation au changement</li>
+							</ul>
+						
 						<br />
-						<br />
-					
-					<p style={{fontSize: "1.8rem"}}><em>"</em> Aussi loin et aussi vite que l'on aille, on est toujours à sa juste place <br /> sur le dos d'un cheval <em>"</em></p>
+						<p style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</p>
+							<br />
+							<ul style={{fontSize: "1.3rem", marginTop: "10px"}}>
+								<li>Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine)</li>
+								<li>A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.</li>
+								<li>Favorise un lien affectif et développe l'empathie.</li>
+								<li>A des effets cardio-vasculaires positifs liés à la détente.</li>
+								<li>Permet de s'épanouir, prendre plaisir, s'exprimer, s'autonomiser, prendre confiance en soi, s'affirmer.</li>
+								<li>Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention</li>
+								<li>Contact doux, agréable à toucher, effet apaisant et structurant.</li>
+								<li>Le cheval a ses propres besoins besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.</li>
+								<li>Un effet physiologique, baisse les hormones du stress...</li>
+							</ul>
+							<br />
+							<br />
+						
+						<p style={{fontSize: "1.8rem"}}><em>"</em> Aussi loin et aussi vite que l'on aille, on est toujours à sa juste place <br /> sur le dos d'un cheval <em>"</em></p>
+					</div>
 				</div>
-			</div>
 
-		</section>
+			</section>
+		</Suspense>
 		// {/* </SmoothProvider> */}
 	)
 }

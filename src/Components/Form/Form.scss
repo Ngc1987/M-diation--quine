@@ -1,22 +1,29 @@
+@import "../../Sass/variables";
+
 .form {
 	// height: 300px;
 	display: flex;
 	flex-direction: column;
 	width: 80%;
-	margin-top: 30px;
+	margin-top: 16px;
 
 	input, textarea {
 		padding: 4px;
 		border-radius: 5px;
 		outline: none;
 		border: none;
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 		transition: all 0.3s ease;
+		font-family: Merienda;
+		font-size: 1.2rem;
+		border: 1px solid #927a708a;
 
 		&:focus {
 			box-shadow: 0 0 1px 1px white,
 							0 0 3px 3px white,
 						;
+
+		border: 1px solid transparent;
 		}
 	}
 
@@ -25,19 +32,23 @@
 	}
 
 	button {
-		margin-top: 20px;
-		width: 70px;
+		// margin-top: 5px;
+		// width: 70px;
 		align-self: center;
 		border-radius: 5px;
 		border: none;
 		padding: 5px;
 		background-color: #fff;
+		color: $horse-normal;
+		font-family: Merienda;
+		font-weight: bold;
 	}
 
 	&__errorMsg {
 		text-align: center;
 		color: red;
-		font-size: 1.2rem;
+		font-size: 1.1rem;
+		margin-top: -13px;
 	}
 }
 

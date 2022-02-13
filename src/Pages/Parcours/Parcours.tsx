@@ -1,13 +1,17 @@
 // import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
-import React, { useEffect, useRef, useState } from "react";
-import { StyledDiv } from "styles/styles";
+import React, { Suspense, useEffect, useRef, useState } from "react";
+import { StyledDiv } from "../../styles/styles";
 import "./Parcours.scss";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { hideGsap, makeAppear, makeMove } from "Greensock/utils";
-import ImageSection from "Components/ImageSection/ImageSection";
-import Title from "Components/Title/Title";
+import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
+import Loader from "../../Components/Loader/Loader";
+// import ImageSection from "../../Components/ImageSection/ImageSection";
+// import Title from "../../Components/Title/Title";
 // import { SmoothProvider } from 'react-smooth-scrolling';
+
+const Title = React.lazy(() => import("../../Components/Title/Title"));
+const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
 
 // Interface for the cmponent props
 export interface Props  {
@@ -87,64 +91,85 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	// 	hideGsap(".parcours__article", "center start-=275%", "bottom start-=300%", false);
 	// }, [])
 
+	// useEffect(() => {
+	// 	gsap.from(titleRef.current, {
+	// 		y: 5,
+	// 		opacity: 0,
+	// 		duration: 0.6,
+	// 		delay: 0.4
+	// 	})
+	// }, [])
+	// useEffect(() => {
+	// 	gsap.from(contentRef.current, {
+	// 		// y:10,	
+	// 		opacity: 0,
+	// 		duration: 1,
+	// 		delay: 0.6
+	// 	})
+	// }, [])
+
 	useEffect(() => {
 		gsap.from(titleRef.current, {
-			y: 5,
+			y: 15,
 			opacity: 0,
-			duration: 0.6
+			duration: 0.7,
+			// delay: 0.3
 		})
 	}, [])
 	useEffect(() => {
 		gsap.from(contentRef.current, {
-			// y:10,	
+			y:15,	
 			opacity: 0,
-			duration: 1,
-			delay: 0.3
+			duration: 0.7,
+			delay: 0.5
 		})
 	}, [])
 
 	return (
 		// <SmoothProvider skew={false}>
-		<section data-scroll-section ref={innerRef} className="parcours" data-pin="pinSection" >
+		<Suspense fallback={<Loader/>}>
 
-			<Title 
-				innerRef={titleRef} 
-				className="parcours__title" 
-				title="Mon parcours" 
-				// subtitle="Mon parcours"
-				/>
+			<section data-scroll-section ref={innerRef} className="parcours" data-pin="pinSection" >
 
-			<div ref={contentRef} className="parcours__content">
-				<ImageSection 
-					innerRef={imageDivRef} 
-					innerRef2={imageRef2} 
-					className="parcours__content-image" 
-					src={"/assets/parcours.jpg"} 
-					alt="deux chevaux face à deux personnes" />
+				<Title 
+					innerRef={titleRef} 
+					className="parcours__title" 
+					title="Mon parcours" 
+					// subtitle="Mon parcours"
+					/>
+
+				<div ref={contentRef} className="parcours__content">
+					<ImageSection 
+						innerRef={imageDivRef} 
+						innerRef2={imageRef2} 
+						className="parcours__content-image" 
+						src={process.env.PUBLIC_URL + "/assets/parcours.webp"} 
+						alt="deux chevaux face à deux personnes" />
 
 
-				<div ref={articleRef} className="parcours__content-article" >
-					<p>
-						Depuis toujours passionnée par cet animal qu'est le cheval, j'ai passé un monitorat d'équitation (BEES 1er degré) en 1992. 
-					</p>
-					<br />
-					<p>
-						De par mes diverses expériences professionnelles, j'ai cotoyé un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales)
-					</p>
-					<br />
-					<p>
-						Je suis actuellement aide médico-psychologique depuis plus de 10 ans dans un IME (institut médico-éducatif) à Olonne sur Mer.
-					</p>
-					<br />
-					<p>
-						Au sein de l'IME, nous possédons 2 poneys, ce qui m'a permis de pratiquer la médiation équine pendant quelques années auprès des jeunes pensionnaires, et de confirmer mon envie de me former en tant que praticienne en médiation équine. 
-					</p>
-					<br />
-					<p>Ce que j'ai enfin fais en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
+					<div ref={articleRef} className="parcours__content-article" >
+						<p>
+							Depuis toujours passionnée par cet animal qu'est le cheval, j'ai passé un monitorat d'équitation (BEES 1er degré) en 1992. 
+						</p>
+						<br />
+						<p>
+							De par mes diverses expériences professionnelles, j'ai cotoyé un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales)
+						</p>
+						<br />
+						<p>
+							Je suis actuellement aide médico-psychologique depuis plus de 10 ans dans un IME (institut médico-éducatif) à Olonne sur Mer.
+						</p>
+						<br />
+						<p>
+							Au sein de l'IME, nous possédons 2 poneys, ce qui m'a permis de pratiquer la médiation équine pendant quelques années auprès des jeunes pensionnaires, et de confirmer mon envie de me former en tant que praticienne en médiation équine. 
+						</p>
+						<br />
+						<p>Ce que j'ai enfin fais en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
+					</div>
 				</div>
-			</div>
 
-		</section>
+			</section>
+		</Suspense>
 		// {/* </SmoothProvider> */}
 	)
 }

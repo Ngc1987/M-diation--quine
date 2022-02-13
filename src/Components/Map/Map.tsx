@@ -16,7 +16,7 @@ interface MapProps {
 const Map = () => {
 
 	const location = {
-		address: 'La Buissonière',
+		address: 'La Brissonière',
 		lat: 46.61190075870131,
 		lng: -1.7319245852153748
 		}
@@ -32,7 +32,7 @@ const Map = () => {
       // Important! Always set the container height explicitly
       
         <div className="map">
-            <h2 className="map-h2">Ferme équestre de la Buissonnière</h2>
+            <h2 className="map-h2">Ferme équestre de la Brissonnière</h2>
             <div className="google-map">
             <GoogleMapReact
               bootstrapURLKeys={{ key: "AIzaSyBz8hOr6hpIMeZI_9-i_rxyw4KqkTMPsi8" }}

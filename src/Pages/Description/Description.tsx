@@ -1,12 +1,16 @@
 // import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import "./Description.scss";
-import Title from "Components/Title/Title";
-import ImageSection from "Components/ImageSection/ImageSection";
+// import Title from "Components/Title/Title";
+// import ImageSection from "Components/ImageSection/ImageSection";
 import { StyledDiv } from '../../styles/styles';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { hideGsap, makeAppear, makeMove } from "Greensock/utils";
+import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
+import Loader from "../../Components/Loader/Loader";
+
+const Title = React.lazy(() => import("../../Components/Title/Title"));
+const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
 
 // import { SmoothProvider } from 'react-smooth-scrolling'
 
@@ -86,55 +90,59 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled}) => {
 
 	useEffect(() => {
 		gsap.from(titleRef.current, {
-			y: 5,
+			y: 15,
 			opacity: 0,
-			duration: 0.6
+			duration: 0.7,
+			// delay: 0.3
 		})
 	}, [])
 	useEffect(() => {
 		gsap.from(contentRef.current, {
-			// y:10,	
+			y:15,	
 			opacity: 0,
-			duration: 1,
-			delay: 0.3
+			duration: 0.7,
+			delay: 0.5
 		})
 	}, [])
 	
 	return (
 
-		<section data-scroll-section ref={innerRef} className="description" data-pin="pinSection" >
+		<Suspense fallback={<Loader/>}>
+			
+			<section data-scroll-section ref={innerRef} className="description" data-pin="pinSection" >
 
-			<Title 
-				innerRef={titleRef} 
-				className="description__title" 
-				title="La médiation équine" 
-				subtitle="Qu'est-ce que c'est ?"/>
+				<Title 
+					innerRef={titleRef} 
+					className="description__title" 
+					title="La médiation équine" 
+					subtitle="Qu'est-ce que c'est ?"/>
 
-			<div ref={contentRef} className="description__content">
-				<ImageSection 
-					innerRef={imageDivRef} 
-					innerRef2={imageRef2} 
-					className="description__content-image" 
-					src={"/assets/description.jpg"} 
-					alt="deux chevaux face à deux personnes" />
-				
+				<div ref={contentRef} className="description__content">
+					<ImageSection 
+						innerRef={imageDivRef} 
+						innerRef2={imageRef2} 
+						className="description__content-image" 
+						src={process.env.PUBLIC_URL + "/assets/description.webp"} 
+						alt="deux chevaux face à deux personnes" />
+					
 
-				<div ref={articleRef} className="description__content-article" >
-						<p>La médiation équine est un soin donné par un professionnel de santé formé à la relation d'aide, facilité par la présence d'un cheval ou d'un poney.</p>
-						<br />
-						<p>La médiation équine utilise le cheval comme médiateur thérapeutique, afin de traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
-						<br />
-						<p>On dit que le cheval est notre mirroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
-						<br />
-						<p>L’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. C'est une démarche de soin et un processus créateur. Le cheval fait lien vers le patient, c'est la tension entre le patient qui tend vers le désir et le thérapeute qui tend vers le désir du patient.</p>
-						<br />
-						<br />
-							<h2>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h2>
+					<div ref={articleRef} className="description__content-article" >
+							<p>La médiation équine est un soin donné par un professionnel de santé formé à la relation d'aide, facilité par la présence d'un cheval ou d'un poney.</p>
+							<br />
+							<p>La médiation équine utilise le cheval comme médiateur thérapeutique, afin de traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
+							<br />
+							<p>On dit que le cheval est notre mirroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
+							<br />
+							<p>L’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. C'est une démarche de soin et un processus créateur. Le cheval fait lien vers le patient, c'est la tension entre le patient qui tend vers le désir et le thérapeute qui tend vers le désir du patient.</p>
+							<br />
+							<br />
+								<h2>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h2>
+					</div>
+
 				</div>
 
-			</div>
-
-		</section>
+			</section>
+		</Suspense>
 	)
 }
 

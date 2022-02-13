@@ -15,7 +15,7 @@
 
 		h2 {
 			margin-right: 10px;
-			font-size: 4rem;
+			// font-size: 4rem;
 		}
 		h3 {
 			margin-left: 10px;
@@ -29,6 +29,7 @@
 		flex-direction: column;
 		align-items: center;
 		margin-top: 30px;
+		max-width: 1200px;
 
 		&-image {
 			width: 80%;
@@ -56,7 +57,7 @@
 	}
 }
 
-@media screen and (min-width: 390px) {
+@media screen and (min-width: 410px) {
 	.forwho {
 		margin-top: -20px;
 	}

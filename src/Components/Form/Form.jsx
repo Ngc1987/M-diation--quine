@@ -3,7 +3,7 @@ import { StyledDiv } from 'styles/styles';
 import "./Form.scss";
 import { useForm } from 'react-hook-form';
 // import emailjs from "emailjs-com";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import emailjs, { init } from '@emailjs/browser';
@@ -20,32 +20,36 @@ const ContactForm = () => {
 
 
 	const [disabled, setDisabled] = useState(false);
+	console.log(disabled)
 
 	// Function that displays a success toast on bottom right of the page when form submission is successful
 	const toastifySuccess = () => {
-		toast('Form sent!', {
-			position: 'bottom-right',
+		toast.success('Votre message a bien été envoyé ! 🐎', {
+			position: 'top-center',
 			autoClose: 5000,
-			hideProgressBar: true,
+			hideProgressBar: false,
 			closeOnClick: true,
 			pauseOnHover: true,
 			draggable: false,
-			className: 'submit-feedback success',
+			transition: Flip,
+			// className: 'submit-feedback success',
 			toastId: 'notifyToast'
 		});
 	};
 
 	const onSubmit = async (data) => {
-		const { firstName, lastName, email, message } = data;
+		const { firstName, lastName, email, message, numberPhone } = data;
 
 		console.log('First name: ', firstName);
 		console.log('Last name: ', lastName);
 		console.log('Email: ', email);
 		console.log('Message: ', message);
+		console.log('Téléphone: ', numberPhone);
 
 		try {
 			// Disable form while processing submission
 			setDisabled(true);
+			console.log(disabled)
 
 			// Define template params
 			const templateParams = {
@@ -56,12 +60,12 @@ const ContactForm = () => {
 			};
 
 			// Use emailjs to email contact form data
-			await emailjs.send(
-				"service_2if4nkm",
-				"template_3z23f6p",
-				templateParams,
-				"user_Ch8zKqPzcFNo8oW0WqNgg"
-			);
+			// await emailjs.send(
+			// 	"service_2if4nkm",
+			// 	"template_3z23f6p",
+			// 	templateParams,
+			// 	"user_Ch8zKqPzcFNo8oW0WqNgg"
+			// );
 
 			// Reset contact form fields after submission
 			reset();
@@ -84,7 +88,7 @@ const ContactForm = () => {
 						required: { value: true, message: 'Veuillez indiquer votre prénom' },
 						maxLength: {
 							value: 30,
-							message: 'Please use 30 characters or less'
+							message: 'Veuillez saisir moins de 30 caractères.'
 						}
 					})}/>
 				{errors.firstName && <span className='form__errorMsg'>{errors.firstName.message}</span>}
@@ -95,7 +99,7 @@ const ContactForm = () => {
 						required: { value: true, message: 'Veuillez indiquer votre nom' },
 						maxLength: {
 							value: 30,
-							message: 'Please use 30 characters or less'
+							message: 'Veuillez saisir moins de 30 caractères.'
 						}
 					})} />
 				{errors.lastName && <span className='form__errorMsg'>{errors.lastName.message}</span>}
@@ -109,6 +113,21 @@ const ContactForm = () => {
 
 					/>
 				{errors.email && (<span className='form__errorMsg'>Veuillez indiquer une adresse email valide</span>)}
+
+
+				<label htmlFor="numberPhone"></label>
+				<input type="text" id="numberPhone" name='numberPhone' placeholder='N° de téléphone'
+					{...register('numberPhone', {
+						required: { value: true, message: 'Saisissez votre numéro de téléphone' },
+						maxLength: {
+							value: 20,
+							message: 'Veuillez rentrer un numéro de téléphone valide'
+						},
+						pattern: /^[0-9]+$/
+					})} />
+					{errors.numberPhone && <span className='form__errorMsg'>{errors.numberPhone.message}</span>}
+
+
 
 				<label htmlFor="message"></label>
 					<textarea type="text" id="message" rows={5} placeholder='Message'
