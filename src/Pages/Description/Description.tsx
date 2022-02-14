@@ -18,9 +18,10 @@ const ImageSection = React.lazy(() => import("../../Components/ImageSection/Imag
 export interface Props  {
 	innerRef?: React.MutableRefObject<null>;
 	checkDisabled?: (self: any) => void;
+	className: string;
 }
 
-const Description:React.FC<Props> = ({innerRef, checkDisabled}) => {
+const Description:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 	
 	// Init the scrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
@@ -88,28 +89,28 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled}) => {
 	// 	}
 	// }, [checkDisabled, dimensions.width])
 
-	useEffect(() => {
-		gsap.from(titleRef.current, {
-			y: 15,
-			opacity: 0,
-			duration: 0.7,
-			// delay: 0.3
-		})
-	}, [])
-	useEffect(() => {
-		gsap.from(contentRef.current, {
-			y:15,	
-			opacity: 0,
-			duration: 0.7,
-			delay: 0.5
-		})
-	}, [])
+	// useEffect(() => {
+	// 	gsap.from(titleRef.current, {
+	// 		y: 15,
+	// 		opacity: 0,
+	// 		duration: 0.7,
+	// 		// delay: 0.3
+	// 	})
+	// }, [])
+	// useEffect(() => {
+	// 	gsap.from(contentRef.current, {
+	// 		y:15,	
+	// 		opacity: 0,
+	// 		duration: 0.7,
+	// 		delay: 0.5
+	// 	})
+	// }, [])
 	
 	return (
 
 		<Suspense fallback={<Loader/>}>
 			
-			<section data-scroll-section ref={innerRef} className="description" data-pin="pinSection" >
+			<section data-scroll-section ref={innerRef} className={`description ${className}`}>
 
 				<Title 
 					innerRef={titleRef} 
@@ -131,12 +132,14 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled}) => {
 							<br />
 							<p>La médiation équine utilise le cheval comme médiateur thérapeutique, afin de traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
 							<br />
-							<p>On dit que le cheval est notre mirroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
+							<h2>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h2>
+							<br />
+							<p>On dit que le cheval est notre miroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
 							<br />
 							<p>L’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. C'est une démarche de soin et un processus créateur. Le cheval fait lien vers le patient, c'est la tension entre le patient qui tend vers le désir et le thérapeute qui tend vers le désir du patient.</p>
 							<br />
 							<br />
-								<h2>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h2>
+								
 					</div>
 
 				</div>

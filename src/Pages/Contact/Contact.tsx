@@ -10,17 +10,18 @@ const Map = React.lazy(() => import("../../Components/Map/Map"));
 
 export interface Props  {
 	checkDisabled?: (self: any) => void;
+	className: string;
 }
 
-const Contact:React.FC<Props> = () => {
+const Contact:React.FC<Props> = ({className}) => {
 	return (
 		<Suspense fallback={<Loader/>}>
-			<div className='contact'>
+			<div className={`contact ${className}`}>
 				<Title title="Contact" className="contact__title" />
 				<div className="contact__infos">
 					<p>Vous pouvez me contacter directement par téléphone en cliquant sur le lien suivant</p>
 					
-						<a className="contact__infos-tel" href="tel:+33614382452"><FaPhoneSquareAlt/></a>
+						<a className="contact__infos-tel" href="tel:+33614382452" aria-label="Bouton appeler" ><FaPhoneSquareAlt/></a>
 					
 					<p>Ou remplissez le formulaire ci-dessous. </p>
 				</div>

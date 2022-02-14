@@ -7,16 +7,17 @@
 	margin-bottom: 150px;
 	margin-top: 30px;
 
-	&__title {
-		
-		h2 {
-			font-size: 4rem;
+		&__title {
+			
+			h2 {
+				font-size: 4rem;
+			}
 		}
-	}
 
     &__slider {
         height: 300px;
-		width: 85%;
+		    width: 85%;
+        max-width: 1200px;
         margin: 30px 20px;
         position: relative;
         overflow: hidden;
@@ -35,7 +36,7 @@
 	.gallery {
 		
 		&__title {
-			margin-top: -50px;
+			margin-top: 0px;
 		}
 	}
 }
@@ -47,7 +48,7 @@
 			margin-top: 0px;
 
 			h2 {
-				font-size: 5.5rem;
+				font-size: 5.5rem !important;
 			}
 		}
 

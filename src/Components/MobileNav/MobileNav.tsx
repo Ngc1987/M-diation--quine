@@ -9,9 +9,10 @@ export interface Props  {
 	setOpen: () => void;
 	onToggle: () => void;
 	handleOnClose: () => void;
+	handleSectionToDisplay: (e: any) => void;
 }
 
-const MobileNav = ({isOpen, setOpen, onToggle, handleOnClose}) => {
+const MobileNav = ({isOpen, setOpen, onToggle, handleOnClose, handleSectionToDisplay}) => {
 
 	return (
 		<>
@@ -29,31 +30,36 @@ const MobileNav = ({isOpen, setOpen, onToggle, handleOnClose}) => {
 
 				<h2>Naviguer vers</h2>
 
-				<Link className="mobileNav__menu-link" 
-					to="description" 
-					onClick={setOpen}>
+				<div className="mobileNav__menu-link" 
+					// to="description" 
+					data-section="description" 
+					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
 					Description
-				</Link>
-				<Link className="mobileNav__menu-link" 
-					to="pourqui" 
-					onClick={setOpen}>
+				</div>
+				<div className="mobileNav__menu-link" 
+					// to="pourqui" 
+					data-section="pourqui" 
+					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
 					Pour qui ?
-				</Link>
-				<Link className="mobileNav__menu-link" 
-					to="parcours" 
-					onClick={setOpen}>
+				</div>
+				<div className="mobileNav__menu-link" 
+					// to="parcours" 
+					data-section="parcours" 
+					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
 					Mon parcours
-				</Link>
-				<Link className="mobileNav__menu-link" 
-					to="gallerie" 
-					onClick={setOpen}>
+				</div>
+				<div className="mobileNav__menu-link" 
+					// to="gallerie" 
+					data-section="galerie" 
+					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
 					Galerie
-				</Link>
-				<Link className="mobileNav__menu-link" 
-					to="contact" 
-					onClick={setOpen}>
+				</div>
+				<div className="mobileNav__menu-link" 
+					// to="contact" 
+					data-section="contact" 
+					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
 					Contact
-				</Link>
+				</div>
 			</Menu>
 		</>
 	)

@@ -19,9 +19,10 @@ export interface Props  {
 	checkDisabled?: (event: any) => void;
 	disabled?: boolean;
 	asscroll?: boolean;
+	className: string;
 }
 
-const Parcours:React.FC<Props> = ({innerRef, checkDisabled}) => {
+const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 
 	// Init the scrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
@@ -129,7 +130,7 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled}) => {
 		// <SmoothProvider skew={false}>
 		<Suspense fallback={<Loader/>}>
 
-			<section data-scroll-section ref={innerRef} className="parcours" data-pin="pinSection" >
+			<section data-scroll-section ref={innerRef} className={`parcours ${className}`} data-pin="pinSection" >
 
 				<Title 
 					innerRef={titleRef} 

@@ -103,7 +103,7 @@
 			// font-family: The Nautigal;
 			// filter: drop-shadow(2px 2px 2px #f5c4ad);
 			// width: 100%;
-			// margin-right: 10px;
+			margin-right: 15px;
 			// margin-top: 90px;	
 				// margin-top: 30px;
 
@@ -141,7 +141,7 @@
 				// left: 5%;
 				// top: 20px;
 				padding: 5px;
-				margin-left: 25px;
+				margin-left: 15px;
 				margin-top: 10px;
 				// transform: translate(-5%, 0);
 				background-color: white;
@@ -207,6 +207,8 @@
 
 			&-logoDiv {
 
+				margin-left: 30px;
+
 				&-logo {
 					height: 140px;
 				}
@@ -242,8 +244,8 @@
 				&-subtitle {
 					width: 40%;
 					font-size: 3.5rem;
-					margin-left: 10px;
-					margin-right: 10px;
+					// margin-left: 10px;
+					margin-right: 20px;
 					line-height: 1;
 				}
 			}
@@ -251,6 +253,7 @@
 			&-logoDiv {
 
 				position: static;
+				margin-left: 0;
 				// width: 20%;
 				// left: 50%;
 				// transform: translate(-50%, 0);

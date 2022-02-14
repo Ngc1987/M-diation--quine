@@ -12,8 +12,11 @@ interface slider {
   index: number;
   inProgress:  boolean;
 }
+interface Props {
+  className: string;
+}
 
-const Slider: React.FC = () => {
+const Slider:React.FC<Props> = ({className}) => {
 
 	const [slideAnim, setSlideAnim] = useState<slider>({
 		index: 1,
@@ -62,19 +65,19 @@ const Slider: React.FC = () => {
 		}
 	}
 
-	useEffect(() => {
-		gsap.from(sliderRef.current, {
-			y: 15,
-			opacity: 0,
-			duration: 0.7,
-			// delay: 0.3
-		})
-	}, [])
+	// useEffect(() => {
+	// 	gsap.from(sliderRef.current, {
+	// 		y: 15,
+	// 		opacity: 0,
+	// 		duration: 0.7,
+	// 		// delay: 0.3
+	// 	})
+	// }, [])
 
 	return (
 		<Suspense fallback={<Loader/>}>
 
-			<div ref={sliderRef} className="gallery">
+			<div ref={sliderRef} className={`gallery ${className}`}>
 				<Title title="Galerie" className='gallery__title' />
 				<div className='gallery__slider'>
 					{dataSlider.map((obj, index) => {

@@ -29,62 +29,12 @@ const Header = React.lazy(() => import("./Components/Header/Header"));
 
 const App:React.FC = () => {
 
-	// document.querySelectorAll('[data-pin]');
-
-	// Init the scrollTrigger plugin
-	gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-	// Taking in the Dom the elements we need to anim on scroll
-	const home: React.MutableRefObject<null> = useRef(null);
-	const forwho: React.MutableRefObject<null> = useRef(null);
-	const parcours: React.MutableRefObject<null> = useRef(null);
-	const description: React.MutableRefObject<null> = useRef(null);
-	const logoRef = useRef<HTMLDivElement>(null);
-
 	// state for the window size, differents animations displayed for desktop or mobile device
 	const [dimensions, setDimensions] = useState({ 
 		height: window.innerHeight,
 		width: window.innerWidth
 	})
-
-	// Listen resize event, and set the state with the actual values
-	useEffect(() => {
-		function handleResize() {
-			setDimensions({height: window.innerHeight, width: window.innerWidth})
-		}
-		window.addEventListener('resize', handleResize)
 	
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	})
-
-	// Set a pin to stay on the element when arrive on it and scrolling
-	// useEffect(() => {
-	// 	gsap.to(description.current, {scrollTrigger: {trigger: description.current,pin: true}})
-	// }, [])
-	// useEffect(() => {
-	// 	gsap.to(forwho.current, {scrollTrigger: {trigger: forwho.current,pin: true}})
-	// }, [])
-	// useEffect(() => {
-	// 	gsap.to(parcours.current, {scrollTrigger: {trigger: parcours.current,pin: true}})
-	// }, [])
-
-	// Make the logo appear on the top left when scrolling on the page
-	// useEffect(() => {
-	// 	makeAppear(logoRef.current, description.current, "top 75%", "top 55%", true)
-	// }, [])
-
-	// const anchorLink = (event: any): void => {
-	// 	let scrollTo = event.currentTarget.getAttribute("data-pin");
-	// 	console.log("scrollTo", scrollTo);
-	// 	gsap.to(window, {
-	// 		scrollTo,
-	// 		// fastScrollEnd: 2000,
-	// 		// 		preventOverlaps: true
-	// 	});
-	// };
-
 	// State for the mobile device menu
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	
@@ -98,6 +48,27 @@ const App:React.FC = () => {
 	const onToggle = (toggled:boolean) => {
 		toggled ? setIsOpen(true) : setIsOpen(false)
 	}
+	// Listen resize event, and set the state with the actual values
+	useEffect(() => {
+		function handleResize() {
+			setDimensions({height: window.innerHeight, width: window.innerWidth})
+		}
+		window.addEventListener('resize', handleResize)
+	
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	})
+
+
+	// State for the displayed section on the page
+	const [sectionToDisplay, setSectionToDisplay] = useState<string>("description");
+	console.log(sectionToDisplay)
+	const handleSectionToDisplay = (e) => {
+		setSectionToDisplay(e.target.dataset.section);
+		console.log(e.target.dataset.section)
+	}
+	
 
 
 	return (
@@ -111,29 +82,32 @@ const App:React.FC = () => {
 			<Header/>
 
 			{dimensions.width > 767 ?
-				<DesktopNav/>
+				<DesktopNav handleSectionToDisplay={handleSectionToDisplay} />
 				:
 				<MobileNav 
 				isOpen={isOpen}
 				setOpen={setOpen}
 					onToggle={onToggle}
-					handleOnClose={handleOnClose} />
+					handleOnClose={handleOnClose}
+					handleSectionToDisplay={handleSectionToDisplay} />
 			}
 
-			<Routes>
+			<section className="main">
+				<Description className={`main__content ${sectionToDisplay === "description" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "description" ? false : true} />
+				<ForWho className={`main__content ${sectionToDisplay === "pourqui" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "pourqui" ? false : true} />
+				<Parcours className={`main__content ${sectionToDisplay === "parcours" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "parcours" ? false : true} />
+				<Slider className={`main__content ${sectionToDisplay === "galerie" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "galerie" ? false : true} />
+				<Contact className={`main__content ${sectionToDisplay === "contact" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "contact" ? false : true} />
+			</section>
+
+			{/* <Routes>
 				<Route path="/description" element={<Description/>} />
 				<Route path="/pourqui" element={<ForWho/>} />
 				<Route path="/parcours" element={<Parcours/>} />
 				<Route path="/gallerie" element={<Slider/>} />
 				<Route path="/contact" element={<Contact/>} />
-			</Routes>
-			{/* <Shortcuts anchorLink={anchorLink}  />
-			<Home innerRef={home} img={"home.jpg"} />
-			<Description innerRef={description}  />
-			<ForWho innerRef={forwho}  />
-			<Parcours innerRef={parcours} />
-			<Slider/>
-		<Contact/> */}
+			</Routes> */}
+			
 
 			{/* <div ref={logoRef} className="App__imageDiv">
 				<img src={"/assets/headLogowebp.webp"} className="App__logo" alt="logo de l'entreprise"></img>

@@ -17,9 +17,10 @@ const ImageSection = React.lazy(() => import("../../Components/ImageSection/Imag
 export interface Props  {
 	innerRef?: React.MutableRefObject<null>;
 	checkDisabled?: (self: any) => void;
+	className: string;
 }
 
-const ForWho:React.FC<Props> = ({innerRef, checkDisabled}) => {
+const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 
 	// Init the scrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
@@ -135,7 +136,7 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled}) => {
 		// <SmoothProvider skew={false}>
 		<Suspense fallback={<Loader/>}>
 
-			<section ref={innerRef} className="forwho" data-pin="pinSection" >
+			<section ref={innerRef} className={`forwho ${className}`} data-pin="pinSection" >
 
 				<Title 
 					innerRef={titleRef} 

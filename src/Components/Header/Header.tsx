@@ -43,11 +43,11 @@ const Header:React.FC = () => {
 				{dimensions.width < 768 ? 
 				<>
 					<div className="head__brand-logoDiv">
-						<img src={"/assets/headLogowebp.webp"} className="head__brand-logoDiv-logo" alt="logo de l'entreprise"></img>
+						<img src={"/assets/headLogowebp.webp"} className="head__brand-logoDiv-logo" alt="logo de l'entreprise" tabIndex={0} aria-label="Logo de l'entreprise" ></img>
 					</div>
 					<div className="head__brand__name">
-						<h1 className="head__brand__name-title">Dom Equi Médiation</h1>
-						<h2 className="head__brand__name-subtitle">Séances de médiation équine en Vendée</h2>
+						<h1 tabIndex={0} aria-label="Nom de l'entreprise" className="head__brand__name-title">Dom Equi Médiation</h1>
+						<h2 tabIndex={0} aria-label="Phrase de définition" className="head__brand__name-subtitle">Séances de médiation équine en Vendée</h2>
 					</div>
 				</>
 

@@ -3,43 +3,53 @@ import { Link } from 'react-router-dom';
 import "./DesktopNav.scss";
 
 export interface Props  {
-	
+	handleSectionToDisplay: (e: any) => void;
 }
 
 
-const DesktopNav:React.FC<Props> = () => {
+const DesktopNav:React.FC<Props> = ({handleSectionToDisplay}) => {
 
 	return (
 		<div className="desktopNav" >
-			<Link className="desktopNav__link" 
-				to="/description" 
+			<div className="desktopNav__link" 
+				// to="/description" 
+				data-section="description" 
+				onClick={(e)=> handleSectionToDisplay(e)}
 				>
 				Description
-			</Link>
-			<Link className="desktopNav__link" 
-				to="/pourqui" 
+			</div>
+			<div className="desktopNav__link" 
+				// to="/pourqui" 
+				data-section="pourqui" 
+				onClick={(e)=> handleSectionToDisplay(e)}
 				// onClick={setOpen}
 				>
 				Pour qui ?
-			</Link>
-			<Link className="desktopNav__link" 
-				to="/parcours" 
+			</div>
+			<div className="desktopNav__link" 
+				// to="/parcours" 
+				data-section="parcours" 
+				onClick={(e)=> handleSectionToDisplay(e)}
 				// onClick={setOpen}
 				>
 				Mon parcours
-			</Link>
-			<Link className="desktopNav__link" 
-				to="/gallerie" 
+			</div>
+			<div className="desktopNav__link" 
+				// to="/gallerie" 
+				data-section="galerie" 
+				onClick={(e)=> handleSectionToDisplay(e)}
 				// onClick={setOpen}
 				>
 				Galerie
-			</Link>
-			<Link className="desktopNav__link" 
-				to="/contact" 
+			</div>
+			<div className="desktopNav__link" 
+				// to="/contact" 
+				data-section="contact" 
+				onClick={(e)=> handleSectionToDisplay(e)}
 				// onClick={setOpen}
 				>
 				Contact
-			</Link>
+			</div>
 		</div>
 	)
 }
