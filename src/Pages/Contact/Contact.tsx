@@ -23,7 +23,7 @@ const Contact:React.FC<Props> = ({className}) => {
 					
 						<a className="contact__infos-tel" href="tel:+33614382452" aria-label="Bouton appeler" ><FaPhoneSquareAlt/></a>
 					
-					<p>Ou remplissez le formulaire ci-dessous. </p>
+					<p>Ou en remplissant le formulaire ci-dessous. </p>
 				</div>
 				<ContactForm/>
 				<Title title="Localisation" className="contact__place" />
