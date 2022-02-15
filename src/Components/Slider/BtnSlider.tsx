@@ -1,7 +1,6 @@
 import React from 'react';
 import rightArrow from "./icons/right-arrow.svg";
 import leftArrow from "./icons/left-arrow.svg";
-// const leftArrow = require("./icons/left-arrow.svg");
 
 interface Props  {
 	direction: string;

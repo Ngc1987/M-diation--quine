@@ -2,10 +2,13 @@ import React, { Suspense } from 'react';
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import Loader from '../../Components/Loader/Loader';
 import "./Contact.scss";
+import Title from '../../Components/Title/Title';
+import ContactForm from '../../Components/Form/Form';
+import Map from '../../Components/Map/Map';
 
-const Title = React.lazy(() => import("../../Components/Title/Title"));
-const ContactForm = React.lazy(() => import("../../Components/Form/Form"));
-const Map = React.lazy(() => import("../../Components/Map/Map"));
+// const Title = React.lazy(() => import("../../Components/Title/Title"));
+// const ContactForm = React.lazy(() => import("../../Components/Form/Form"));
+// const Map = React.lazy(() => import("../../Components/Map/Map"));
 
 
 export interface Props  {
@@ -15,7 +18,6 @@ export interface Props  {
 
 const Contact:React.FC<Props> = ({className}) => {
 	return (
-		<Suspense fallback={<Loader/>}>
 			<div className={`contact ${className}`}>
 				<Title title="Contact" className="contact__title" />
 				<div className="contact__infos">
@@ -29,7 +31,6 @@ const Contact:React.FC<Props> = ({className}) => {
 				<Title title="Localisation" className="contact__place" />
 				<Map/>
 			</div>
-		</Suspense>
 	)
 };
 

@@ -23,4 +23,4 @@ const HamburgerButton:React.FC<Props> = ({toggled, toggle, onToggle}) => {
 	)
 }
 
-export default HamburgerButton
+export default HamburgerButton;

@@ -33,31 +33,46 @@ const MobileNav = ({isOpen, setOpen, onToggle, handleOnClose, handleSectionToDis
 				<div className="mobileNav__menu-link" 
 					// to="description" 
 					data-section="description" 
-					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
+					onClick={(e) => {
+						setOpen();
+						 handleSectionToDisplay(e) 
+					}}>
 					Description
 				</div>
 				<div className="mobileNav__menu-link" 
 					// to="pourqui" 
 					data-section="pourqui" 
-					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
+					onClick={(e) => {
+						setOpen();
+						 handleSectionToDisplay(e) 
+					}}>
 					Pour qui ?
 				</div>
 				<div className="mobileNav__menu-link" 
 					// to="parcours" 
 					data-section="parcours" 
-					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
+					onClick={(e) => {
+						setOpen();
+						 handleSectionToDisplay(e) 
+					}}>
 					Mon parcours
 				</div>
 				<div className="mobileNav__menu-link" 
 					// to="gallerie" 
 					data-section="galerie" 
-					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
+					onClick={(e) => {
+						setOpen();
+						 handleSectionToDisplay(e) 
+					}}>
 					Galerie
 				</div>
 				<div className="mobileNav__menu-link" 
 					// to="contact" 
 					data-section="contact" 
-					onClick={(e) => {setOpen(); handleSectionToDisplay(e) }}>
+					onClick={(e) => {
+						setOpen();
+						 handleSectionToDisplay(e) 
+					}}>
 					Contact
 				</div>
 			</Menu>

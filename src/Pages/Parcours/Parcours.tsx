@@ -6,12 +6,12 @@ import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
 import Loader from "../../Components/Loader/Loader";
-// import ImageSection from "../../Components/ImageSection/ImageSection";
-// import Title from "../../Components/Title/Title";
+import ImageSection from "../../Components/ImageSection/ImageSection";
+import Title from "../../Components/Title/Title";
 // import { SmoothProvider } from 'react-smooth-scrolling';
 
-const Title = React.lazy(() => import("../../Components/Title/Title"));
-const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
+// const Title = React.lazy(() => import("../../Components/Title/Title"));
+// const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
 
 // Interface for the cmponent props
 export interface Props  {
@@ -127,8 +127,6 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 	}, [])
 
 	return (
-		// <SmoothProvider skew={false}>
-		<Suspense fallback={<Loader/>}>
 
 			<section data-scroll-section ref={innerRef} className={`parcours ${className}`} data-pin="pinSection" >
 
@@ -170,8 +168,6 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 				</div>
 
 			</section>
-		</Suspense>
-		// {/* </SmoothProvider> */}
 	)
 }
 

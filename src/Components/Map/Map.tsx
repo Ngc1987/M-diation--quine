@@ -32,8 +32,8 @@ const Map = () => {
       // Important! Always set the container height explicitly
       
         <div className="map">
-            <h2 className="map-h2">Ferme équestre de la Brissonnière</h2>
-            <div className="google-map">
+            <h2 className="map__title">Ferme équestre de la Brissonnière</h2>
+            <div className="map__googleComponent">
             <GoogleMapReact
               bootstrapURLKeys={{ key: "AIzaSyBz8hOr6hpIMeZI_9-i_rxyw4KqkTMPsi8" }}
               defaultCenter={location}

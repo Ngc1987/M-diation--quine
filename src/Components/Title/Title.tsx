@@ -1,5 +1,5 @@
 import React, { MutableRefObject } from 'react';
-import "./Title.scss"
+import "./Title.scss";
 
 // Interface for the cmponent props
 export interface Props  {

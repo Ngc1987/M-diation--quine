@@ -1,16 +1,16 @@
 // import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import "./Description.scss";
-// import Title from "Components/Title/Title";
-// import ImageSection from "Components/ImageSection/ImageSection";
+import Title from "Components/Title/Title";
+import ImageSection from "Components/ImageSection/ImageSection";
 import { StyledDiv } from '../../styles/styles';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
 import Loader from "../../Components/Loader/Loader";
 
-const Title = React.lazy(() => import("../../Components/Title/Title"));
-const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
+// const Title = React.lazy(() => import("../../Components/Title/Title"));
+// const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
 
 // import { SmoothProvider } from 'react-smooth-scrolling'
 
@@ -108,8 +108,6 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 	
 	return (
 
-		<Suspense fallback={<Loader/>}>
-			
 			<section data-scroll-section ref={innerRef} className={`description ${className}`}>
 
 				<Title 
@@ -132,11 +130,11 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 							<br />
 							<p>La médiation équine utilise le cheval comme médiateur thérapeutique, afin de traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
 							<br />
-							<h2>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h2>
+							<h4>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h4>
 							<br />
 							<p>On dit que le cheval est notre miroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
 							<br />
-							<p>L’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. C'est une démarche de soin et un processus créateur. Le cheval fait lien vers le patient, c'est la tension entre le patient qui tend vers le désir et le thérapeute qui tend vers le désir du patient.</p>
+							<p>Pendant la séance de médiation équine, l’accent est particulièrement mis sur la communication et l’intersensibilité avec le cheval, un animal très sociable. C'est une démarche de soin et un processus créateur. Le cheval fait le lien entre le patient et le thérapeute, c'est la tension entre le patient qui tend vers le désir et le thérapeute qui tend vers le désir du patient.</p>
 							<br />
 							<br />
 								
@@ -145,7 +143,6 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 				</div>
 
 			</section>
-		</Suspense>
 	)
 }
 

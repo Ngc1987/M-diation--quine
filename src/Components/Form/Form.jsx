@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
-import { StyledDiv } from 'styles/styles';
 import "./Form.scss";
 import { useForm } from 'react-hook-form';
-// import emailjs from "emailjs-com";
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-
 import emailjs, { init } from '@emailjs/browser';
 
+
 const ContactForm = () => {
+
+	// Initialize emailJs 
 	init("user_Ch8zKqPzcFNo8oW0WqNgg");
 
+	// Initialize React Hook Form
 	const {
 		register,
 		handleSubmit,
@@ -18,9 +19,8 @@ const ContactForm = () => {
 		formState: { errors }
 	} = useForm();
 
-
+	// State to enable or disable the form
 	const [disabled, setDisabled] = useState(false);
-	console.log(disabled)
 
 	// Function that displays a success toast on bottom right of the page when form submission is successful
 	const toastifySuccess = () => {
@@ -37,6 +37,7 @@ const ContactForm = () => {
 		});
 	};
 
+	// Function to take datas and send on an email
 	const onSubmit = async (data) => {
 		const { firstName, lastName, email, message, numberPhone } = data;
 
@@ -59,20 +60,13 @@ const ContactForm = () => {
 				message
 			};
 
-			// Use emailjs to email contact form data
-			// await emailjs.send(
-			// 	"service_2if4nkm",
-			// 	"template_3z23f6p",
-			// 	templateParams,
-			// 	"user_Ch8zKqPzcFNo8oW0WqNgg"
-			// );
-
 			// Reset contact form fields after submission
 			reset();
 			// Display success toast
 			toastifySuccess();
 			// Re-enable form submission
 			setDisabled(false);
+
 		} catch (e) {
 			console.log(e);
 		}

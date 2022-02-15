@@ -6,11 +6,12 @@ import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
 import Loader from "../../Components/Loader/Loader";
-// import ImageSection from "../../Components/ImageSection/ImageSection";
-// import Title from "../../Components/Title/Title";
+import { GoPrimitiveDot } from "react-icons/go";
+import ImageSection from "../../Components/ImageSection/ImageSection";
+import Title from "../../Components/Title/Title";
 
-const Title = React.lazy(() => import("../../Components/Title/Title"));
-const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
+// const Title = React.lazy(() => import("../../Components/Title/Title"));
+// const ImageSection = React.lazy(() => import("../../Components/ImageSection/ImageSection"));
 // import { SmoothProvider } from 'react-smooth-scrolling';
 
 // Interface for the cmponent props
@@ -133,8 +134,6 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 	}, [])
 
 	return (
-		// <SmoothProvider skew={false}>
-		<Suspense fallback={<Loader/>}>
 
 			<section ref={innerRef} className={`forwho ${className}`} data-pin="pinSection" >
 
@@ -157,41 +156,72 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 					<div ref={articleRef} className="forwho__content-article" >
 						<p>La médiation équine s'adresse bien sûr à tout le monde, enfants, adolescents, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, ou en difficultés sociales ou familiales dans ses dimensions psychiques et corporelles</p>
 						<br />
-						<p style={{fontSize: "1.8rem"}} >Objectifs de la médiation équine :</p>
-							<ul style={{fontSize: "1.3rem", marginTop: "10px"}}>
-								<li>Solliciter l'attention </li>
-								<li>Encourager les initiatives</li>
-								<li>Faciliter le repérage dans le temps et l'espace</li>
-								<li>Développer la conscience du corps</li>
-								<li>Améliorer l'intime et la confiance en soi</li>
-								<li>Faciliter le partage des émotions</li>
-								<li>Entraîner les capacités de tolérance et d'adaptation au changement</li>
-							</ul>
+						<h4>Objectifs de la médiation équine :</h4>
+						<br />
+						
+							{/* <ul style={{fontSize: "1.3rem", marginTop: "10px"}}> */}
+								<p>
+									<GoPrimitiveDot/>Solliciter l'attention 
+								</p>
+								<p>
+									<GoPrimitiveDot/>Encourager les initiatives
+								</p>
+								<p>
+									<GoPrimitiveDot/>Faciliter le repérage dans le temps et l'espace
+								</p>
+								<p>
+									<GoPrimitiveDot/>Développer la conscience du corps
+								</p>
+								<p>
+									<GoPrimitiveDot/>Améliorer l'intime et la confiance en soi
+								</p>
+								<p>
+									<GoPrimitiveDot/>Faciliter le partage des émotions
+								</p>
+								<p>
+									<GoPrimitiveDot/>Entraîner les capacités de tolérance et d'adaptation au changement
+								</p>
+							{/* </ul> */}
 						
 						<br />
-						<p style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</p>
+						<h4 style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</h4>
 							<br />
-							<ul style={{fontSize: "1.3rem", marginTop: "10px"}}>
-								<li>Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine)</li>
-								<li>A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.</li>
-								<li>Favorise un lien affectif et développe l'empathie.</li>
-								<li>A des effets cardio-vasculaires positifs liés à la détente.</li>
-								<li>Permet de s'épanouir, prendre plaisir, s'exprimer, s'autonomiser, prendre confiance en soi, s'affirmer.</li>
-								<li>Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention</li>
-								<li>Contact doux, agréable à toucher, effet apaisant et structurant.</li>
-								<li>Le cheval a ses propres besoins besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.</li>
-								<li>Un effet physiologique, baisse les hormones du stress...</li>
-							</ul>
+							{/* <ul style={{fontSize: "1.3rem", marginTop: "10px"}}> */}
+							<p>
+								<GoPrimitiveDot/> Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine)
+							</p>
+								<GoPrimitiveDot/> A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.
+							<p>
+								<GoPrimitiveDot/> Favorise un lien affectif et développe l'empathie.
+							</p>
+							<p>
+								<GoPrimitiveDot/> A des effets cardio-vasculaires positifs liés à la détente.
+							</p>
+							<p>
+								<GoPrimitiveDot/> Permet de s'épanouir, prendre plaisir, s'exprimer, s'autonomiser, prendre confiance en soi, s'affirmer.
+							</p>
+							<p>
+								<GoPrimitiveDot/> Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention.
+							</p>
+							<p>
+								<GoPrimitiveDot/> Contact doux, agréable à toucher, effet apaisant et structurant.
+							</p>
+							<p>
+								<GoPrimitiveDot/> Le cheval a ses propres besoins besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.
+							</p>
+							<p>
+								<GoPrimitiveDot/> Un effet physiologique, baisse les hormones du stress...
+							</p>
+								
+							{/* </ul> */}
 							<br />
 							<br />
 						
-						<p style={{fontSize: "1.8rem"}}><em>"</em> Aussi loin et aussi vite que l'on aille, on est toujours à sa juste place <br /> sur le dos d'un cheval <em>"</em></p>
+						<h4><em>"</em> Aussi loin et aussi vite que l'on aille, on est toujours à sa juste place <br /> sur le dos d'un cheval. <em>"</em></h4>
 					</div>
 				</div>
 
 			</section>
-		</Suspense>
-		// {/* </SmoothProvider> */}
 	)
 }
 

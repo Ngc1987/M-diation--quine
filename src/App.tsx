@@ -1,13 +1,13 @@
 import './App.scss';
 // import Home from './Pages/Home/Home';
-// import Description from './Pages/Description/Description';
-// import Parcours from './Pages/Parcours/Parcours';
-// import ForWho from './Pages/ForWho/ForWho';
+import Description from './Pages/Description/Description';
+import Parcours from './Pages/Parcours/Parcours';
+import ForWho from './Pages/ForWho/ForWho';
 // import Shortcuts from './Components/Shortcuts/Shortcuts';
-// import Contact from './Pages/Contact/Contact';
-// import MobileNav from '../src/Components/MobileNav/MobileNav';
-// import DesktopNav from '../src/Components/DesktopNav/DesktopNav';
-// import Header from './Components/Header/Header';
+import Contact from './Pages/Contact/Contact';
+import MobileNav from '../src/Components/MobileNav/MobileNav';
+import DesktopNav from '../src/Components/DesktopNav/DesktopNav';
+import Header from './Components/Header/Header';
 // import Map from 'Components/Map/Map';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import {gsap} from "gsap";
@@ -19,13 +19,13 @@ import { Route, Routes } from 'react-router-dom';
 import Loader from '../src/Components/Loader/Loader';
 // import { SmoothProvider } from 'react-smooth-scrolling'
 
-const Description = React.lazy(() => import("./Pages/Description/Description"));
-const Parcours = React.lazy(() => import("./Pages/Parcours/Parcours"));
-const ForWho = React.lazy(() => import("./Pages/ForWho/ForWho"));
-const Contact = React.lazy(() => import("./Pages/Contact/Contact"));
-const MobileNav = React.lazy(() => import("../src/Components/MobileNav/MobileNav"));
-const DesktopNav = React.lazy(() => import("../src/Components/DesktopNav/DesktopNav"));
-const Header = React.lazy(() => import("./Components/Header/Header"));
+// const Description = React.lazy(() => import("./Pages/Description/Description"));
+// const Parcours = React.lazy(() => import("./Pages/Parcours/Parcours"));
+// const ForWho = React.lazy(() => import("./Pages/ForWho/ForWho"));
+// const Contact = React.lazy(() => import("./Pages/Contact/Contact"));
+// const MobileNav = React.lazy(() => import("../src/Components/MobileNav/MobileNav"));
+// const DesktopNav = React.lazy(() => import("../src/Components/DesktopNav/DesktopNav"));
+// const Header = React.lazy(() => import("./Components/Header/Header"));
 
 const App:React.FC = () => {
 
@@ -75,7 +75,7 @@ const App:React.FC = () => {
 		<div className="App" id="App">
 
 			<img src={process.env.PUBLIC_URL + "./assets/bckg.webp"} alt="Fond d'écran" className="background" />
-			<Suspense fallback={<Loader/>}>
+			
 
 			
 			{/* <Loader/> */}
@@ -91,7 +91,6 @@ const App:React.FC = () => {
 					handleOnClose={handleOnClose}
 					handleSectionToDisplay={handleSectionToDisplay} />
 			}
-
 			<section className="main">
 				<Description className={`main__content ${sectionToDisplay === "description" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "description" ? false : true} />
 				<ForWho className={`main__content ${sectionToDisplay === "pourqui" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "pourqui" ? false : true} />
@@ -112,7 +111,6 @@ const App:React.FC = () => {
 			{/* <div ref={logoRef} className="App__imageDiv">
 				<img src={"/assets/headLogowebp.webp"} className="App__logo" alt="logo de l'entreprise"></img>
 			</div>y */}
-		</Suspense>
 		</div>
 	);
 }

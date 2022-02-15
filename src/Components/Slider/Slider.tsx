@@ -1,12 +1,11 @@
-import React, {Suspense, useEffect, useRef, useState} from 'react';
+import React, {Suspense, useRef, useState} from 'react';
 import "./Slider.scss";
 import { dataSlider } from './dataSlider';
 import BtnSlider from './BtnSlider';
 import Loader from '../Loader/Loader';
-import { gsap } from 'gsap';
-// import Title from '../../Components/Title/Title';
+import Title from "../Title/Title";
 
-const Title = React.lazy(() => import("../../Components/Title/Title"));
+// const Title = React.lazy(() => import("../../Components/Title/Title"));
 
 interface slider {
   index: number;
@@ -65,31 +64,26 @@ const Slider:React.FC<Props> = ({className}) => {
 		}
 	}
 
-	// useEffect(() => {
-	// 	gsap.from(sliderRef.current, {
-	// 		y: 15,
-	// 		opacity: 0,
-	// 		duration: 0.7,
-	// 		// delay: 0.3
-	// 	})
-	// }, [])
 
 	return (
-		<Suspense fallback={<Loader/>}>
 
 			<div ref={sliderRef} className={`gallery ${className}`}>
+
 				<Title title="Galerie" className='gallery__title' />
+
 				<div className='gallery__slider'>
+
 					{dataSlider.map((obj, index) => {
 						return (
-							<div
-							key={index}
-							className={slideAnim.index === index + 1 ?
-								"slide active-anim" : "slide"}
-										>
-									
-									<img src={process.env.PUBLIC_URL + `/assets/sliderImgs/img${index+1}.jpg`} alt="" />
-								</div>
+							<div key={index}
+								className={slideAnim.index === index + 1 ?
+											"slide active-anim" 
+											: 
+											"slide"
+								}>
+
+								<img src={process.env.PUBLIC_URL + `/assets/sliderImgs/img${index+1}.jpg`} alt={`${obj}`} />
+							</div>
 						)
 					})}
 
@@ -97,7 +91,6 @@ const Slider:React.FC<Props> = ({className}) => {
 					<BtnSlider moveSlide={prevSlide} direction={"prev"} />
 				</div>
 			</div>
-		</Suspense>
 	)
 };
 

@@ -6,16 +6,16 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	margin-top: 30px;
+	margin-top: 38px;
 	margin-bottom: 150px;
 
 	&__title {
 
 		h2 {
-			font-size: 4rem;
+			font-size: 5rem;
 		}
 		h3 {
-			font-size: 3rem;
+			font-size: 3.5rem;
 		}
 	}
 
@@ -24,7 +24,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 30px;
+		margin-top: 38px;
 		max-width: 1200px;
 
 		&-image {
@@ -55,24 +55,28 @@
 
 @media screen and (min-width: 410px) {
 	.parcours {
-		margin-top: -20px;
+		margin-top: -10px;
+
+		&__content {
+			margin-top: 37px;
+		}
 	}
 }
 
 @media screen and (min-width: 768px) {
 
 	.parcours {
-		margin-top: 30px;
-
+		
 		&__title {
-
+			
+			margin-top: 50px;
 			h2 {
 				font-size: 5.5rem;
 			}
 		}
 
 		&__content {
-			margin-top: 30px;
+			margin-top: 40px;
 
 			&-image {
 				height: 350px;
