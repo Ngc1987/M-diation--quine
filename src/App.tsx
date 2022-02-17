@@ -1,5 +1,5 @@
 import './App.scss';
-// import Home from './Pages/Home/Home';
+import Home from './Pages/Home/Home';
 import Description from './Pages/Description/Description';
 import Parcours from './Pages/Parcours/Parcours';
 import ForWho from './Pages/ForWho/ForWho';
@@ -29,7 +29,12 @@ import Loader from '../src/Components/Loader/Loader';
 // const Header = React.lazy(() => import("./Components/Header/Header"));
 
 const App:React.FC = () => {
-
+	
+	// Init the scrollTrigger plugin
+	// gsap.registerPlugin(ScrollTrigger);
+	// Taking in the Dom the elements we need to anim on scroll
+	// const home: React.MutableRefObject<null> = useRef(null);
+	// const homeDiv: React.MutableRefObject<null> = useRef(null);
 	// state for the window size, differents animations displayed for desktop or mobile device
 	const [dimensions, setDimensions] = useState({ 
 		height: window.innerHeight,
@@ -70,35 +75,58 @@ const App:React.FC = () => {
 		console.log(e.target.dataset.section)
 	}
 	
+	// useEffect(() => {
+
+	// 	// const homeSection = homeDiv.current;
+	// 	const HomeTL = gsap.timeline();
+	// 	HomeTL.to(homeDiv.current, {
+	// 		opacity: 0, duration: 1.5, delay: 4, zIndex: -100
+	// 	})
+	// 	// .to(logo, {autoAlpha: 1, delay: 1, duration: 2})
+	// 	// .to(textRef.current,{autoAlpha: 1, duration: 1, stagger: 0.5}, "-=1.3")
+	// })
+
+	const [showContent, setShowContent] = useState<boolean>(false);
+	useEffect(() => {
+		setTimeout(() => {
+			setShowContent(true)
+		}, 5000)
+	}, [])
 
 
 	return (
 		<div className="App" id="App">
 
-			<img src={process.env.PUBLIC_URL + "./assets/bckg.webp"} alt="Fond d'écran" className="background" />
-			
+			<Home img={"home.jpg"}/>
 
 			
 			{/* <Loader/> */}
-			<Header/>
+			{showContent &&
+				<>
+				<img src={process.env.PUBLIC_URL + "./assets/bckg.webp"} alt="Fond d'écran" className="background" />
+				<Header/>
 
-			{dimensions.width > 767 ?
-				<DesktopNav handleSectionToDisplay={handleSectionToDisplay} />
-				:
-				<MobileNav 
-				isOpen={isOpen}
-				setOpen={setOpen}
-					onToggle={onToggle}
-					handleOnClose={handleOnClose}
-					handleSectionToDisplay={handleSectionToDisplay} />
+				{dimensions.width > 767 ?
+					<DesktopNav handleSectionToDisplay={handleSectionToDisplay} />
+					:
+					<MobileNav 
+					isOpen={isOpen}
+					setOpen={setOpen}
+						onToggle={onToggle}
+						handleOnClose={handleOnClose}
+						handleSectionToDisplay={handleSectionToDisplay} />
+					}
+				<section className="main">
+					<Description className={`main__content ${sectionToDisplay === "description" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "description" ? false : true} />
+					<ForWho className={`main__content ${sectionToDisplay === "pourqui" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "pourqui" ? false : true} />
+					<Parcours className={`main__content ${sectionToDisplay === "parcours" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "parcours" ? false : true} />
+					<Slider className={`main__content ${sectionToDisplay === "galerie" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "galerie" ? false : true} />
+					<Contact className={`main__content ${sectionToDisplay === "contact" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "contact" ? false : true} />
+				</section>
+			
+				</>
+			
 			}
-			<section className="main">
-				<Description className={`main__content ${sectionToDisplay === "description" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "description" ? false : true} />
-				<ForWho className={`main__content ${sectionToDisplay === "pourqui" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "pourqui" ? false : true} />
-				<Parcours className={`main__content ${sectionToDisplay === "parcours" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "parcours" ? false : true} />
-				<Slider className={`main__content ${sectionToDisplay === "galerie" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "galerie" ? false : true} />
-				<Contact className={`main__content ${sectionToDisplay === "contact" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "contact" ? false : true} />
-			</section>
 
 			{/* <footer className="footer__div">
 

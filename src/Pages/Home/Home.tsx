@@ -11,6 +11,7 @@ import { hideGsap } from 'Greensock/utils';
 export interface Props  {
 	img: string;
 	innerRef?: React.MutableRefObject<null>;
+	ref?: React.MutableRefObject<null>;
 }
 
 const Home:React.FC<Props> = ({ img, innerRef }) => {
@@ -30,6 +31,7 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 	const textRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const layoutRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	const logoRef = useRef() as React.MutableRefObject<HTMLImageElement>;
+	const sectionRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 	
 	// Timeline to show when the page is loaded
 	useEffect(() => {
@@ -41,6 +43,13 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 		})
 		.to(logo, {autoAlpha: 1, delay: 1, duration: 2})
 		.to(textRef.current,{autoAlpha: 1, duration: 1, stagger: 0.5}, "-=1.3")
+		.to(sectionRef.current, {
+			opacity: 0,
+			zIndex: -500,
+			duration: 2,
+			delay: 1,
+			ease: "power4.out"
+		})
 	})
 	// Apply the function to make disappear the elements on scroll
 	// useEffect(() => {
@@ -58,7 +67,7 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 		
 		return (
 			// <SmoothProvider skew={false}>
-			<section ref={innerRef} className="home" data-pin="pinSection">
+			<div ref={sectionRef} className="home" data-pin="pinSection">
 				<div className="home__image">
 					<img className="home__image-lqip" 
 						style={{ ...lqip, opacity: imgLoaded ? 0 : 100 }}
@@ -81,7 +90,7 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 					<img src={"/assets/headLogowebp.webp"} className="home__logo" alt="logo de l'entreprise"></img>
 
 				</div>
-			</section>
+			</div>
 			// {/* </SmoothProvider> */}
 
 	)

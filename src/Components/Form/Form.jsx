@@ -117,7 +117,7 @@ const ContactForm = () => {
 							value: 20,
 							message: 'Veuillez rentrer un numéro de téléphone valide'
 						},
-						pattern: /^[0-9]+$/
+						// pattern: /^[0-9]+$/
 					})} />
 					{errors.numberPhone && <span className='form__errorMsg'>{errors.numberPhone.message}</span>}
 

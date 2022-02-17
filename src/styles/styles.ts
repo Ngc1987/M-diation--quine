@@ -10,6 +10,7 @@ export const parent:CSSProperties = {
 export const lqip:CSSProperties = {
 	position: "absolute",
 	width: "100%",
+	minHeight: "100%",
 	zIndex: 10,
 	transform: "translate(-50%, -50%) scale(1)",
 	top: "50%",
