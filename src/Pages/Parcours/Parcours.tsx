@@ -152,7 +152,7 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 						</p>
 						<br />
 						<p>
-							De par mes diverses expériences professionnelles, j'ai cotoyé un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales)
+							De par mes diverses expériences professionnelles, j'ai cotoyé un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales).
 						</p>
 						<br />
 						<p>
@@ -163,7 +163,7 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 							Au sein de l'IME, nous possédons 2 poneys, ce qui m'a permis de pratiquer la médiation équine pendant quelques années auprès des jeunes pensionnaires, et de confirmer mon envie de me former en tant que praticienne en médiation équine. 
 						</p>
 						<br />
-						<p>Ce que j'ai enfin fais en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
+						<p>Ce que j'ai enfin fait en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
 					</div>
 				</div>
 

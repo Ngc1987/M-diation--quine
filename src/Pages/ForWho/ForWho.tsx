@@ -149,12 +149,20 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 						innerRef={imageDivRef} 
 						innerRef2={imageRef2} 
 						className="forwho__content-image" 
-						src={"/assets/forwho.webp"} 
+						src={"/assets/forwho.jpg"} 
 						alt="deux chevaux face à deux personnes" />
 
 
 					<div ref={articleRef} className="forwho__content-article" >
-						<p>La médiation équine s'adresse bien sûr à tout le monde, enfants, adolescents, ou adultes, présentant des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, ou en difficultés sociales ou familiales dans ses dimensions psychiques et corporelles</p>
+						<p>La médiation équine s'adresse à toute personne, dans ses dimensions psychiques et corporelles, enfant, adolescent, ou adulte.</p>
+						<br />
+						<p>Les séances de médiation équine sont bénéfiques pour toute personne présentant des troubles psychiques, allant du véritable handicap aux simples difficulté sociales. </p>
+						<br />
+						<p>
+							Des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, des troubles psychomoteurs ou des difficultés sociales ou familiales, sont des exemples de problématiques qui peuvent être traitées grâce à la médiation équine.
+						</p>
+						<br />
+						<p>Mais la médiation équine s'adresse aussi aux personnes à la recherche d'un bien-être, suite à une perte de confiance en soi, une dépression, un deuil récent, ou après avoir dévellopeé des symptomes de stress post-traumatique (troubles du sommeil, troubles alimentaires, crise d’angoisse, troubles de l’humeur, troubles affectifs…)</p>
 						<br />
 						<h4>Objectifs de la médiation équine :</h4>
 						<br />
@@ -188,7 +196,7 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 							<br />
 							{/* <ul style={{fontSize: "1.3rem", marginTop: "10px"}}> */}
 							<p>
-								<GoPrimitiveDot/> Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine)
+								<GoPrimitiveDot/> Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine).
 							</p>
 								<GoPrimitiveDot/> A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.
 							<p>
@@ -204,13 +212,13 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 								<GoPrimitiveDot/> Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention.
 							</p>
 							<p>
-								<GoPrimitiveDot/> Contact doux, agréable à toucher, effet apaisant et structurant.
+								<GoPrimitiveDot/> Effet apaisant et structurant, le cheval a un contact doux et est agréable à toucher.
 							</p>
 							<p>
-								<GoPrimitiveDot/> Le cheval a ses propres besoins besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.
+								<GoPrimitiveDot/> Le cheval a ses propres besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.
 							</p>
 							<p>
-								<GoPrimitiveDot/> Un effet physiologique, baisse les hormones du stress...
+								<GoPrimitiveDot/> Un effet physiologique positif, baisse les hormones du stress...
 							</p>
 								
 							{/* </ul> */}

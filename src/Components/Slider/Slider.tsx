@@ -82,7 +82,7 @@ const Slider:React.FC<Props> = ({className}) => {
 											"slide"
 								}>
 
-								<img src={process.env.PUBLIC_URL + `/assets/sliderImgs/img${index+1}.jpg`} alt={`${obj}`} />
+								<img src={process.env.PUBLIC_URL + `/assets/sliderImgs/img${index+1}.webp`} alt={`${obj}`} />
 							</div>
 						)
 					})}

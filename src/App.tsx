@@ -8,6 +8,7 @@ import Contact from './Pages/Contact/Contact';
 import MobileNav from '../src/Components/MobileNav/MobileNav';
 import DesktopNav from '../src/Components/DesktopNav/DesktopNav';
 import Header from './Components/Header/Header';
+import Footer from 'Components/Footer/Footer';
 // import Map from 'Components/Map/Map';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
 import {gsap} from "gsap";
@@ -98,6 +99,11 @@ const App:React.FC = () => {
 				<Slider className={`main__content ${sectionToDisplay === "galerie" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "galerie" ? false : true} />
 				<Contact className={`main__content ${sectionToDisplay === "contact" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "contact" ? false : true} />
 			</section>
+
+			{/* <footer className="footer__div">
+
+				<Footer/>
+			</footer> */}
 
 			{/* <Routes>
 				<Route path="/description" element={<Description/>} />

@@ -55,7 +55,7 @@ const Header:React.FC = () => {
 				<>
 					<h1 className="head__brand__name-title">Dom Equi Médiation</h1>
 					<div className="head__brand-logoDiv">
-						<img src={"/assets/headLogowebp.webp"} className="head__brand-logoDiv-logo" alt="logo de l'entreprise"></img>
+						<img src={process.env.PUBLIC_URL + "/assets/headLogowebp.webp"} className="head__brand-logoDiv-logo" alt="logo de l'entreprise"></img>
 					</div>
 					{/* <div className="head__brand__name"> */}
 						<h2 className="head__brand__name-subtitle">Séances de médiation équine en Vendée</h2>
