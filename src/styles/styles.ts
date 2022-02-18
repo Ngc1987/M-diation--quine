@@ -30,6 +30,7 @@ export const main:CSSProperties = {
 	top: "50%",
 	left: "50%",
 	objectFit: "cover",
+	filter: "blur(2px)",
 	zIndex: 0
 }
 

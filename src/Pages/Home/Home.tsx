@@ -9,7 +9,7 @@ import { hideGsap } from 'Greensock/utils';
 
 // Interface for the cmponent props
 export interface Props  {
-	img: string;
+	img?: string;
 	innerRef?: React.MutableRefObject<null>;
 	ref?: React.MutableRefObject<null>;
 }
@@ -24,7 +24,7 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 	const [imgUrl, setImgUrl] = useState<string>("");
 	// Setting the image url to show it after the low quality pic after window is loaded
 	useEffect(() => {
-		setImgUrl(`/assets/${img}`)
+		setImgUrl(`/assets/${img}.webp`)
 	}, [img])
 	
 	// Taking in the Dom the elements we need to anim on scroll
@@ -38,11 +38,8 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 
 		const logo: HTMLImageElement = logoRef.current;
 		const HomeTL = gsap.timeline();
-		HomeTL.to(layoutRef.current, {
-			backgroundColor: "rgba(0, 0, 0, 0.507)", duration: 1.5,
-		})
-		.to(logo, {autoAlpha: 1, delay: 1, duration: 2})
-		.to(textRef.current,{autoAlpha: 1, duration: 1, stagger: 0.5}, "-=1.3")
+		HomeTL.to(logo, {autoAlpha: 1, duration: 2})
+		.to(textRef.current,{autoAlpha: 1, duration: 2, stagger: 0.5, y: -55, ease: "power4.out"}, "-=1.3")
 		.to(sectionRef.current, {
 			opacity: 0,
 			zIndex: -500,
@@ -50,6 +47,9 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 			delay: 1,
 			ease: "power4.out"
 		})
+		// .to(layoutRef.current, {
+		// 	backgroundColor: "rgba(0, 0, 0, 0.507)", duration: 1.5,
+		// })
 	})
 	// Apply the function to make disappear the elements on scroll
 	// useEffect(() => {
@@ -69,15 +69,15 @@ const Home:React.FC<Props> = ({ img, innerRef }) => {
 			// <SmoothProvider skew={false}>
 			<div ref={sectionRef} className="home" data-pin="pinSection">
 				<div className="home__image">
-					<img className="home__image-lqip" 
+					{/* <img className="home__image-lqip" 
 						style={{ ...lqip, opacity: imgLoaded ? 0 : 100 }}
-						src={`/assets/${img}.lqip.jpg`}
+						src={`/assets/${img}.lqip.webp`}
 						alt="deux chevaux face à deux personnes" />
 					<img className="home__image-main" 
 						style={main}
 						src={imgUrl}
 						alt="deux chevaux face à deux personnes"
-						onLoad={() => setImgLoaded(true)} />
+						onLoad={() => setImgLoaded(true)} /> */}
 
 					<div ref={layoutRef} className="home__image-layout"></div>
 					

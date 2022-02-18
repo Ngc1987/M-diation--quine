@@ -10,12 +10,16 @@
 		padding: 4px;
 		border-radius: 5px;
 		outline: none;
-		border: none;
+		// border: none;
 		margin-bottom: 15px;
 		transition: all 0.3s ease;
 		font-family: Merienda;
 		font-size: 1.2rem;
 		border: 1px solid #927a708a;
+
+		&:hover {
+			border: 1px solid transparent;
+		}
 
 		&:focus {
 			box-shadow: 0 0 1px 1px white,
@@ -37,6 +41,19 @@
 		color: $horse-normal;
 		font-family: Merienda;
 		font-weight: bold;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		border: 1px solid #927a708a;
+
+		&:focus {
+			box-shadow: 0 0 1px 1px white,
+							0 0 3px 3px white;
+		}
+
+		&:hover {
+			border: 1px solid transparent;
+			// transform: scale(1.1);
+		}
 	}
 
 	&__errorMsg {

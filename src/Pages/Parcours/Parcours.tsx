@@ -126,6 +126,37 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 		})
 	}, [])
 
+	const revealRefs = useRef<HTMLParagraphElement[]>([]);
+    revealRefs.current = [];
+ 
+    const addToRefs = (el: HTMLParagraphElement):void => {
+        if (el && !revealRefs.current.includes(el)) {
+            revealRefs.current.push(el);
+        }
+    };
+
+	useEffect(() => {
+		revealRefs.current.forEach((el, index) => {
+			
+			gsap.from(el,  {
+				duration: 1,
+				autoAlpha: 0,
+				ease: "Expo.easeOut",
+				y:15,
+				scrollTrigger: {
+					id: `section-${index+1}`,
+					trigger: el,
+					start: 'center bottom-=10',
+					end: 'bottom bottom-=70',
+					toggleActions: 'play none none reverse',
+					// markers: true
+				}
+			});
+	
+		});
+	
+	}, []);
+
 	return (
 
 			<section data-scroll-section ref={innerRef} className={`parcours ${className}`} data-pin="pinSection" >
@@ -147,23 +178,23 @@ const Parcours:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 
 
 					<div ref={articleRef} className="parcours__content-article" >
-						<p>
+						<p ref={addToRefs}>
 							Depuis toujours passionnée par cet animal qu'est le cheval, j'ai passé un monitorat d'équitation (BEES 1er degré) en 1992. 
 						</p>
 						<br />
-						<p>
+						<p ref={addToRefs}>
 							De par mes diverses expériences professionnelles, j'ai cotoyé un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales).
 						</p>
 						<br />
-						<p>
+						<p ref={addToRefs}>
 							Je suis actuellement aide médico-psychologique depuis plus de 10 ans dans un IME (institut médico-éducatif) à Olonne sur Mer.
 						</p>
 						<br />
-						<p>
+						<p ref={addToRefs}>
 							Au sein de l'IME, nous possédons 2 poneys, ce qui m'a permis de pratiquer la médiation équine pendant quelques années auprès des jeunes pensionnaires, et de confirmer mon envie de me former en tant que praticienne en médiation équine. 
 						</p>
 						<br />
-						<p>Ce que j'ai enfin fait en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
+						<p ref={addToRefs}>Ce que j'ai enfin fait en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
 					</div>
 				</div>
 

@@ -1,3 +1,6 @@
+@import url("../../Sass/_variables.scss");
+
+
 .home {
 	display: flex;
 	justify-content: center;
@@ -38,11 +41,14 @@
 			inset: 0;
 			width: 100vw;
 			height: 100vh;
-			background-color: rgba(0, 0, 0, 0.726);
+			// background-color: rgba(165, 128, 93, 0.575);
+			background-color: rgba(165, 128, 93, 0.575);
 			opacity: 1;
 			visibility: visible;
 			z-index: 150;
 		}
+
+		
 	}
 
 	&__text {
@@ -57,6 +63,7 @@
 		visibility: hidden;
 		margin-top: 50px;
 		color: #fff;
+				filter: drop-shadow(2px 2px 2px #665249);
 
 		h2 {
 			font-size: 5.5rem;
@@ -95,6 +102,10 @@
 			
 	}
 }
+
+// .smallSize {
+// 	transform: translateX(calc(-50% + 100px));
+// }
 
 @media screen and (min-width: 820px) {
 	.home {

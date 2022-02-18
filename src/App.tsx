@@ -33,12 +33,23 @@ const App:React.FC = () => {
 	// Init the scrollTrigger plugin
 	// gsap.registerPlugin(ScrollTrigger);
 	// Taking in the Dom the elements we need to anim on scroll
-	// const home: React.MutableRefObject<null> = useRef(null);
+	const app: React.MutableRefObject<null> = useRef(null);
 	// const homeDiv: React.MutableRefObject<null> = useRef(null);
 	// state for the window size, differents animations displayed for desktop or mobile device
 	const [dimensions, setDimensions] = useState({ 
 		height: window.innerHeight,
 		width: window.innerWidth
+	})
+	// Listen resize event, and set the state with the actual values
+	useEffect(() => {
+		function handleResize() {
+			setDimensions({height: window.innerHeight, width: window.innerWidth})
+		}
+		window.addEventListener('resize', handleResize)
+	
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
 	})
 	
 	// State for the mobile device menu
@@ -54,17 +65,6 @@ const App:React.FC = () => {
 	const onToggle = (toggled:boolean) => {
 		toggled ? setIsOpen(true) : setIsOpen(false)
 	}
-	// Listen resize event, and set the state with the actual values
-	useEffect(() => {
-		function handleResize() {
-			setDimensions({height: window.innerHeight, width: window.innerWidth})
-		}
-		window.addEventListener('resize', handleResize)
-	
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	})
 
 
 	// State for the displayed section on the page
@@ -75,35 +75,31 @@ const App:React.FC = () => {
 		console.log(e.target.dataset.section)
 	}
 	
-	// useEffect(() => {
-
-	// 	// const homeSection = homeDiv.current;
-	// 	const HomeTL = gsap.timeline();
-	// 	HomeTL.to(homeDiv.current, {
-	// 		opacity: 0, duration: 1.5, delay: 4, zIndex: -100
-	// 	})
-	// 	// .to(logo, {autoAlpha: 1, delay: 1, duration: 2})
-	// 	// .to(textRef.current,{autoAlpha: 1, duration: 1, stagger: 0.5}, "-=1.3")
-	// })
-
+	
 	const [showContent, setShowContent] = useState<boolean>(false);
 	useEffect(() => {
 		setTimeout(() => {
 			setShowContent(true)
-		}, 5000)
+		}, 100)
 	}, [])
+	
+	useEffect(() => {
 
+		gsap.from(app.current, {
+			opacity: 0, duration: 2
+		})
+	}, [showContent])
 
 	return (
 		<div className="App" id="App">
 
-			<Home img={"home.jpg"}/>
+			{/* <Home/> */}
 
+			<img src={process.env.PUBLIC_URL + "./assets/bckg.webp"} alt="Fond d'écran" className="background" />
 			
 			{/* <Loader/> */}
 			{showContent &&
-				<>
-				<img src={process.env.PUBLIC_URL + "./assets/bckg.webp"} alt="Fond d'écran" className="background" />
+				<div ref={app} >
 				<Header/>
 
 				{dimensions.width > 767 ?
@@ -124,7 +120,7 @@ const App:React.FC = () => {
 					<Contact className={`main__content ${sectionToDisplay === "contact" ? "visible" : "hidden"}`} aria-hidden={sectionToDisplay === "contact" ? false : true} />
 				</section>
 			
-				</>
+				</div>
 			
 			}
 

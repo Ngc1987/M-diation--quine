@@ -133,6 +133,39 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 		})
 	}, [])
 
+	const revealRefs = useRef<HTMLParagraphElement[]>([]);
+    revealRefs.current = [];
+ 
+    const addToRefs = (el: HTMLParagraphElement):void => {
+        if (el && !revealRefs.current.includes(el)) {
+            revealRefs.current.push(el);
+        }
+    };
+
+	useEffect(() => {
+		revealRefs.current.forEach((el, index) => {
+			
+			gsap.from(el,  {
+				duration: 1,
+				autoAlpha: 0,
+				ease: "Expo.easeOut",
+				y:15,
+				scrollTrigger: {
+					id: `section-${index+1}`,
+					trigger: el,
+					start: 'center bottom-=10',
+					end: 'bottom bottom-=70',
+					toggleActions: 'play none none reverse',
+					// markers: true
+				}
+			});
+	
+		});
+	
+	}, []);
+
+	
+
 	return (
 
 			<section ref={innerRef} className={`forwho ${className}`} data-pin="pinSection" >
@@ -154,70 +187,72 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 
 
 					<div ref={articleRef} className="forwho__content-article" >
-						<p>La médiation équine s'adresse à toute personne, dans ses dimensions psychiques et corporelles, enfant, adolescent, ou adulte.</p>
+						<p ref={addToRefs}>La médiation équine s'adresse à toute personne, dans ses dimensions psychiques et corporelles, enfant, adolescent, ou adulte.</p>
 						<br />
-						<p>Les séances de médiation équine sont bénéfiques pour toute personne présentant des troubles psychiques, allant du véritable handicap aux simples difficulté sociales. </p>
+						<p ref={addToRefs}>Les séances de médiation équine sont bénéfiques pour toute personne présentant des troubles psychiques, allant du véritable handicap aux simples difficulté sociales. </p>
 						<br />
-						<p>
+						<p ref={addToRefs}>
 							Des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, des troubles psychomoteurs ou des difficultés sociales ou familiales, sont des exemples de problématiques qui peuvent être traitées grâce à la médiation équine.
 						</p>
 						<br />
-						<p>Mais la médiation équine s'adresse aussi aux personnes à la recherche d'un bien-être, suite à une perte de confiance en soi, une dépression, un deuil récent, ou après avoir dévellopeé des symptomes de stress post-traumatique (troubles du sommeil, troubles alimentaires, crise d’angoisse, troubles de l’humeur, troubles affectifs…)</p>
+						<p ref={addToRefs}>Mais la médiation équine s'adresse aussi aux personnes à la recherche d'un bien-être, suite à une perte de confiance en soi, une dépression, un deuil récent, ou après avoir dévellopeé des symptomes de stress post-traumatique (troubles du sommeil, troubles alimentaires, crise d’angoisse, troubles de l’humeur, troubles affectifs…)</p>
 						<br />
-						<h4>Objectifs de la médiation équine :</h4>
+						<h4 ref={addToRefs}>Objectifs de la médiation équine :</h4>
 						<br />
 						
 							{/* <ul style={{fontSize: "1.3rem", marginTop: "10px"}}> */}
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Solliciter l'attention 
 								</p>
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Encourager les initiatives
 								</p>
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Faciliter le repérage dans le temps et l'espace
 								</p>
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Développer la conscience du corps
 								</p>
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Améliorer l'intime et la confiance en soi
 								</p>
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Faciliter le partage des émotions
 								</p>
-								<p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Entraîner les capacités de tolérance et d'adaptation au changement
 								</p>
 							{/* </ul> */}
 						
 						<br />
-						<h4 style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</h4>
+						<h4 ref={addToRefs} style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</h4>
 							<br />
 							{/* <ul style={{fontSize: "1.3rem", marginTop: "10px"}}> */}
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine).
 							</p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.
-							<p>
+							</p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Favorise un lien affectif et développe l'empathie.
 							</p>
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> A des effets cardio-vasculaires positifs liés à la détente.
 							</p>
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Permet de s'épanouir, prendre plaisir, s'exprimer, s'autonomiser, prendre confiance en soi, s'affirmer.
 							</p>
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention.
 							</p>
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Effet apaisant et structurant, le cheval a un contact doux et est agréable à toucher.
 							</p>
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Le cheval a ses propres besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.
 							</p>
-							<p>
+							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Un effet physiologique positif, baisse les hormones du stress...
 							</p>
 								
@@ -225,7 +260,7 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 							<br />
 							<br />
 						
-						<h4><em>"</em> Aussi loin et aussi vite que l'on aille, on est toujours à sa juste place <br /> sur le dos d'un cheval. <em>"</em></h4>
+						<h4 ref={addToRefs}><em>"</em> Aussi loin et aussi vite que l'on aille, on est toujours à sa juste place <br /> sur le dos d'un cheval. <em>"</em></h4>
 					</div>
 				</div>
 
