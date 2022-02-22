@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+<p align="center">
+	<a href="https://app.netlify.com/sites/domequimediation/deploys" >
+		<img src="https://api.netlify.com/api/v1/badges/c3af44f3-75be-4a1e-9a38-c5d9c634b7a0/deploy-status"/>
+	</a>
+	</p>
+<p align="center">
+	<a href="https://github.com/Ngc1987" >
+		<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
+	</a>
+	<a href="https://reactjs.org/">
+		<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+	</a>
+	<a href="https://reactrouter.com/">
+		<img src="https://img.shields.io/badge/Typescript-CA4245?style=for-the-badge&logo=typescript&logoColor=white"/>
+	</a>
+	<a href="https://reactjs.org/docs/introducing-jsx.html">
+		<img src="https://img.shields.io/badge/JSX-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+		</a>
+	<a href="https://sass-lang.com/">
+		<img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white"/>
+		</a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<h1 align="center">Dom Équi-médiation, séances de médiation équine en Vendée</h1>
 
-In the project directory, you can run:
 
-### `npm start`
+<p align="center">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![img](https://i.imgur.com/Pg6OXMu.png)
 
-### `npm test`
+<p align="center">
+<a href="https://domequimediation.netlify.app//">🌍 Live démo
+</a>
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 1. Author
 
-### `npm run build`
+Thomas Semeria
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Languages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Typescript
+- JSX
+- SCSS
 
-### `npm run eject`
+## 3. Project
+Dom Équi-médiation is a website for a therapist who works with poneys and horses. She needed to have a simple website with some informations (the description of horses mediation, the population who can make this, a gallery with some pics, a contact form and the localisation).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I didn't have a mockup or a fixed design, just a visit card with the logo and a wallpaper. The client had no requirements, she left me free to do what i want. So here is my first website as a developer, AND as a UI/UX designer 🥳 ! 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For this project i use:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [React](https://reactjs.org/)
+- [React-burger-menu](https://www.npmjs.com/package/react-burger-menu) for the beautiful mobile menu.
+- [React-hook-form](https://sass-lang.com/) to have a basic form with a good code organization.
+- [React-toastify](https://www.npmjs.com/package/react-toastify) to have a beautiful modale to confirm the user he send a message.
+- [Emailjs-com](https://www.emailjs.com/) to send the user message to the client mail.
+- [Google-map-react](https://www.npmjs.com/package/google-map-react) to have a localisation on the contact component.
+- [Greensock](https://greensock.com/) to make some animations and transitions.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4 Launching the project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Fork this repository
+- Clone it on your computer.
+- Then write on the terminal `npm install` to install all the dependencies
+- You can now do an `npm start` and the App is now hosted on http://localhost:3000

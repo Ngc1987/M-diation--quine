@@ -1,7 +1,6 @@
 // import forwho from process.env.PUBLIC_URL + "/assets/forwho.jpg";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import "./ForWho.scss";
-import { StyledDiv } from '../../styles/styles';
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
@@ -145,15 +144,15 @@ const ForWho:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 	useEffect(() => {
 		revealRefs.current.forEach((el, index) => {
 			
-			gsap.from(el,  {
+			gsap.to(el,  {
 				duration: 1,
-				autoAlpha: 0,
+				opacity: 1,
 				ease: "Expo.easeOut",
-				y:15,
+				y:0,
 				scrollTrigger: {
 					id: `section-${index+1}`,
 					trigger: el,
-					start: 'center bottom-=10',
+					start: 'top bottom-=20',
 					end: 'bottom bottom-=70',
 					toggleActions: 'play none none reverse',
 					// markers: true

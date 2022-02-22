@@ -56,8 +56,15 @@
 			color: $horse-dark;
 
 			h4 {
+				opacity: 0;
+				transform: translateY(15px);
 				font-size: 1.8rem;
 				filter: drop-shadow(2px 2px 2px #f5c4ad);
+			}
+
+			p {
+				opacity: 0;
+				transform: translateY(15px);
 			}
 		}
 	}

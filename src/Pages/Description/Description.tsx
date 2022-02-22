@@ -3,7 +3,6 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import "./Description.scss";
 import Title from "Components/Title/Title";
 import ImageSection from "Components/ImageSection/ImageSection";
-import { StyledDiv } from '../../styles/styles';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { hideGsap, makeAppear, makeMove } from "../../Greensock/utils";
@@ -127,7 +126,7 @@ const Description:React.FC<Props> = ({innerRef, checkDisabled, className}) => {
 				scrollTrigger: {
 					id: `section-${index+1}`,
 					trigger: el,
-					start: 'center bottom-=10',
+					start: 'top bottom-=20',
 					end: 'bottom bottom-=70',
 					toggleActions: 'play none none reverse',
 					// markers: true

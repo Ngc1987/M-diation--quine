@@ -24,10 +24,8 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-    "react-scroll-motion": "^0.2.1",
     "react-toastify": "^8.1.0",
     "sass": "^1.46.0",
-    "styled-components": "^5.3.3",
     "typescript": "^4.5.4",
     "web-vitals": "^2.1.2"
   },
@@ -64,7 +62,6 @@
     "@types/react-fontawesome": "^1.6.5",
     "glob": "^7.2.0",
     "hamburger-react": "^2.4.1",
-    "react-smooth-scrolling": "^1.0.2",
     "sharp": "^0.29.3"
   }
 }
