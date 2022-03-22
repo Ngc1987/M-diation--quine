@@ -3,7 +3,7 @@
 .title {
 
 	color: #ffffff;
-	filter: drop-shadow(1px 1px 2px #6b5951);
+	filter: drop-shadow(0px 0px 5px #755243);
 	font-weight: 700;
 	font-family: The Nautigal;
 	text-align: center;
@@ -15,9 +15,13 @@
 
 		h2 {
 			width: fit-content;
+			margin-right: 10px;
+			font-size: 5.5rem;
 		}
 		h3 {
 			width: fit-content;
+			margin-left: 10px;
+			font-size: 4rem;
 		}
 }
 

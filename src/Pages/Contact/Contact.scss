@@ -9,16 +9,10 @@
 	margin-top: 38px;
 	margin-bottom: 100px;
 
-	&__title {
-		font-family: The Nautigal;
-		
-		h2 {
-			font-size: 5rem;
-		}
-	}
+	
 	&__infos {
 		font-family: Merienda;
-		font-size: 1.2rem;
+		font-size: 1.3rem;
 		width: 80%;
 		color: $horse-dark;
 		margin-top: 30px;
@@ -87,9 +81,3 @@
 
 	}
 }
-
-// @media screen and (min-width: 1024px) {
-// 	.contact {
-
-// 	}
-// }

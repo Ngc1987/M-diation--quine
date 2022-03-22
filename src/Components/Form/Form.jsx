@@ -77,59 +77,76 @@ const ContactForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)} className="form">
 
 				<label htmlFor="firstName"></label>
-					<input type="text" id="firstName" name='firstName' placeholder='Prénom'
-					{...register('firstName', {
-						required: { value: true, message: 'Veuillez indiquer votre prénom' },
-						maxLength: {
-							value: 30,
-							message: 'Veuillez saisir moins de 30 caractères.'
-						}
-					})}/>
+					<input type="text" 
+							id="firstName" 
+							name='firstName' 
+							placeholder='Prénom'
+
+						{...register('firstName', {
+							required: { value: true, message: 'Veuillez indiquer votre prénom' },
+							maxLength: {
+								value: 30,
+								message: 'Veuillez saisir moins de 30 caractères.'
+							}
+						})}/>
 				{errors.firstName && <span className='form__errorMsg'>{errors.firstName.message}</span>}
 
 				<label htmlFor="lastName"></label>
-					<input type="text" id="lastName" name='lastName' placeholder='Nom'
-					{...register('lastName', {
-						required: { value: true, message: 'Veuillez indiquer votre nom' },
-						maxLength: {
-							value: 30,
-							message: 'Veuillez saisir moins de 30 caractères.'
-						}
-					})} />
+					<input type="text" 
+							id="lastName" 
+							name='lastName' 
+							placeholder='Nom'
+
+						{...register('lastName', {
+							required: { value: true, message: 'Veuillez indiquer votre nom' },
+							maxLength: {
+								value: 30,
+								message: 'Veuillez saisir moins de 30 caractères.'
+							}
+						})} />
 				{errors.lastName && <span className='form__errorMsg'>{errors.lastName.message}</span>}
 
 				<label htmlFor="email" id="email"></label>
-					<input type="email" name='email' placeholder='Email'
+					<input type="email" 
+							name='email' 
+							placeholder='Email'
+
 					{...register('email', {
 						required: true,
 						pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-					})}
-
-					/>
+					})}/>
 				{errors.email && (<span className='form__errorMsg'>Veuillez indiquer une adresse email valide</span>)}
 
 
 				<label htmlFor="numberPhone"></label>
-				<input type="text" id="numberPhone" name='numberPhone' placeholder='N° de téléphone'
+				<input type="text" 
+						id="numberPhone" 
+						name='numberPhone' 
+						placeholder='N° de téléphone'
+
 					{...register('numberPhone', {
 						required: { value: true, message: 'Saisissez votre numéro de téléphone' },
 						maxLength: {
 							value: 20,
 							message: 'Veuillez rentrer un numéro de téléphone valide'
 						},
-						// pattern: /^[0-9]+$/
 					})} />
 					{errors.numberPhone && <span className='form__errorMsg'>{errors.numberPhone.message}</span>}
 
 
 
 				<label htmlFor="message"></label>
-					<textarea type="text" id="message" rows={5} placeholder='Message'
-					name='message'
+					<textarea type="text" 
+							id="message" 
+							rows={5} 
+							placeholder='Message'
+							name='message'
+
 					{...register('message', {
 						required: true
 					})}
 				 />
+				 
 				{errors.message && <span className='form__errorMsg'>Veuillez laisser un message avant validation</span>}
 
 				<button>Envoyer</button>

@@ -7,21 +7,9 @@
 	justify-content: flex-start;
 	align-items: center;
 	margin-top: 30px;
-	// margin-bottom: 500px;
 	
 	&__title {
 		line-height: 0.9;
-		// display: flex;
-		// flex-direction: column;
-
-		h2 {
-			margin-right: 10px;
-			font-size: 5rem;
-		}
-		h3 {
-			margin-left: 10px;
-			font-size: 3.5rem;
-		}
 	}
 
 	&__content {
@@ -50,7 +38,7 @@
 						;
 			margin-top: 10px;
 			z-index: 100;
-			font-size: 1.2rem;
+			font-size: 1.3rem;
 			font-family: Merienda;
 			text-align: center;
 			color: $horse-dark;
@@ -92,18 +80,5 @@
 			}
 		}
 
-	}
-}
-@media screen and (min-width: 1024px) {
-
-	.description {
-
-		&__content {
-			// flex-direction: row;
-
-			&-image {
-				// height: 500px;
-			}
-		}
 	}
 }

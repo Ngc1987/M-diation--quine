@@ -1,5 +1,6 @@
-import { Divide as Hamburger }  from "hamburger-react";
 import React from "react";
+
+import { Divide as Hamburger }  from "hamburger-react";
 
 interface Props  {
 	toggled: boolean;
@@ -10,7 +11,6 @@ interface Props  {
 const HamburgerButton:React.FC<Props> = ({toggled, toggle, onToggle}) => {
 
 	return (
-
 		<Hamburger rounded 
 				toggled={toggled} 
 				toggle={toggle} 
@@ -19,7 +19,6 @@ const HamburgerButton:React.FC<Props> = ({toggled, toggle, onToggle}) => {
 				duration={0.5} 
 				color="#665249" 
 				label="Show menu"/>
-
 	)
 }
 

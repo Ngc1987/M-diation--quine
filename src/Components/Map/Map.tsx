@@ -1,32 +1,18 @@
 
-import GoogleMapReact from 'google-map-react';
-// import google
 import React from 'react';
+import "./Map.scss";
+
+import GoogleMapReact from 'google-map-react';
 import LocationPin from './LocationPin';
-import "./Map.scss"
 
-interface MapProps {
-  text?: string;
-  lat?: number;
-  lng?: number;
-}
 
-// const AnyReactComponent = ({ text, <l></l>at, lng }) => <div>{text}</div>;
-
-const Map = () => {
+const Map:React.FC = () => {
 
 	const location = {
 		address: 'La Brissonière',
 		lat: 46.61190075870131,
 		lng: -1.7319245852153748
-		}
-  	const defaultProps = {
-		center: {
-		lat: 46.61190075870131,
-		lng: -1.7319245852153748
-		},
-		zoom: 10
-	};
+	}
 
     return (
       // Important! Always set the container height explicitly

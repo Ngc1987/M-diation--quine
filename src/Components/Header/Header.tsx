@@ -1,74 +1,66 @@
-import React, { useEffect, useState } from "react";
-import DesktopNav from "Components/DesktopNav/DesktopNav";
-import MobileNav from "Components/MobileNav/MobileNav";
+import React from "react";
 import "./Header.scss";
-import { Link } from "react-router-dom";
-import { slide as Menu } from 'react-burger-menu';
-import HamburgerButton from "Components/HamburgerButton/HamburgerButton";
-import Hamburger from "hamburger-react";
 
+import useWindowSize from "Hooks/useWindowSize";
 
 const Header:React.FC = () => {
 
-	
-
-	// state for the window size, differents animations displayed for desktop or mobile device
-	const [dimensions, setDimensions] = useState({ 
-		height: window.innerHeight,
-		width: window.innerWidth
-	})
-
-
-
-	// Listen resize event, and set the state with the actual values
-	useEffect(() => {
-		function handleResize() {
-			setDimensions({height: window.innerHeight, width: window.innerWidth})
-		}
-		window.addEventListener('resize', handleResize)
-	
-		return () => {
-			window.removeEventListener('resize', handleResize)
-		}
-	})
+	// Hook to fetch the window size and show the mobile or desktop version for the header
+	const dimensions = useWindowSize();
 
 	return (
+
 		<header className="head" >
 
-
 			<div className="head__layout"></div>
-
 			<div className="head__brand" >
 
 				{dimensions.width < 768 ? 
 				<>
 					<div className="head__brand-logoDiv">
-						<img src={"/assets/headLogowebp.webp"} className="head__brand-logoDiv-logo" alt="logo de l'entreprise" tabIndex={0} aria-label="Logo de l'entreprise" ></img>
+						<img src={"/assets/headLogowebp.webp"} 
+							className="head__brand-logoDiv-logo" 
+							alt="logo de l'entreprise" 
+							tabIndex={0} 
+							aria-label="Logo de l'entreprise" 
+						></img>
 					</div>
 					<div className="head__brand__name">
-						<h1 tabIndex={0} aria-label="Nom de l'entreprise" className="head__brand__name-title">Dom Equi Médiation</h1>
-						<h2 tabIndex={0} aria-label="Phrase de définition" className="head__brand__name-subtitle">Séances de médiation équine en Vendée</h2>
+						<h1 tabIndex={0} 
+							aria-label="Nom de l'entreprise" 
+							className="head__brand__name-title"
+							>Dom Equi Médiation
+						</h1>
+						<h2 tabIndex={0} 
+							aria-label="Descriptif du service vendu" 
+							className="head__brand__name-subtitle"
+							>Séances de médiation équine en Vendée
+						</h2>
 					</div>
 				</>
-
 				:
 				<>
-					<h1 className="head__brand__name-title">Dom Equi Médiation</h1>
+					<h1 className="head__brand__name-title"
+						tabIndex={0} 
+						aria-label="Nom de l'entreprise" 
+						>Dom Equi Médiation
+					</h1>
 					<div className="head__brand-logoDiv">
-						<img src={process.env.PUBLIC_URL + "/assets/headLogowebp.webp"} className="head__brand-logoDiv-logo" alt="logo de l'entreprise"></img>
+						<img src={process.env.PUBLIC_URL + "/assets/headLogowebp.webp"} 
+							className="head__brand-logoDiv-logo" 
+							tabIndex={0} 
+							aria-label="Logo de l'entreprise" 
+							alt="logo de l'entreprise">
+						</img>
 					</div>
-					{/* <div className="head__brand__name"> */}
-						<h2 className="head__brand__name-subtitle">Séances de médiation équine en Vendée</h2>
-					{/* </div> */}
+					<h2 className="head__brand__name-subtitle"
+						tabIndex={0} 
+						aria-label="Descriptif du service vendu" 
+						>Séances de médiation équine en Vendée
+					</h2>
 				</>
 			}
-
-				
-				{/* <img src={"/assets/headLogowebp.webp"} className="head__brand-logo" alt="logo de l'entreprise"></img> */}
 			</div>
-
-			
-
 		</header>
 	)
 }

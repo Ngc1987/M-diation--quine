@@ -1,11 +1,10 @@
-import React, {Suspense, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import "./Slider.scss";
+
 import { dataSlider } from './dataSlider';
 import BtnSlider from './BtnSlider';
-import Loader from '../Loader/Loader';
 import Title from "../Title/Title";
 
-// const Title = React.lazy(() => import("../../Components/Title/Title"));
 
 interface slider {
   index: number;
@@ -17,14 +16,13 @@ interface Props {
 
 const Slider:React.FC<Props> = ({className}) => {
 
+	// State to know the index of the picture to display
 	const [slideAnim, setSlideAnim] = useState<slider>({
 		index: 1,
 		inProgress: false
 	})
 
-
-	const sliderRef = useRef() as React.MutableRefObject<HTMLDivElement>;
-
+	// Functions when the user click on the left or right buttons
 	const nextSlide = ():void => {
 
 		if(slideAnim.index !== dataSlider.length && !slideAnim.inProgress) {
@@ -64,10 +62,9 @@ const Slider:React.FC<Props> = ({className}) => {
 		}
 	}
 
-
 	return (
 
-			<div ref={sliderRef} className={`gallery ${className}`}>
+			<div className={`gallery ${className}`}>
 
 				<Title title="Galerie" className='gallery__title' />
 
