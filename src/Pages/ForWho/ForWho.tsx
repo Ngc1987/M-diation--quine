@@ -39,7 +39,7 @@ const ForWho:React.FC<Props> = ({className}) => {
 				scrollTrigger: {
 					id: `section-${index+1}`,
 					trigger: el,
-					start: 'top bottom-=20',
+					start: 'top bottom-=30',
 					end: 'bottom bottom-=70',
 					toggleActions: 'play none none reverse',
 					// markers: true
@@ -66,28 +66,17 @@ const ForWho:React.FC<Props> = ({className}) => {
 
 
 					<div className="forwho__content-article" >
-						<p ref={addToRefs}>La médiation équine s'adresse à toute personne, dans ses dimensions psychiques et corporelles, enfant, adolescent, ou adulte.</p>
-						<br />
-						<p ref={addToRefs}>Les séances de médiation équine sont bénéfiques pour toute personne présentant des troubles psychiques, allant du véritable handicap aux simples difficulté sociales. </p>
+						<p ref={addToRefs}>La médiation équine s'adresse à toute personne, dans ses dimensions psychiques et corporelles, enfant, adolescent, ou adulte. Elle permet le temps d'une séance, de se retrouver, se ressourcer et se recentrer sur elle même. </p>
 						<br />
 						<p ref={addToRefs}>
-							Des difficultés d'apprentissage, des déficiences intellectuelles et cognitives, des troubles du spectre autistique, des troubles psychomoteurs ou des difficultés sociales ou familiales, sont des exemples de problématiques qui peuvent être traitées grâce à la médiation équine.
+							Mais elle peut aussi être très bénéfique pour certaines problématiques, allant des difficultés d'apprentissage, sociales ou familiales, aux troubles du spectre autistique.
 						</p>
 						<br />
-						<p ref={addToRefs}>Mais la médiation équine s'adresse aussi aux personnes à la recherche d'un bien-être, suite à une perte de confiance en soi, une dépression, un deuil récent, ou après avoir développé des symptômes de stress post-traumatique (troubles du sommeil, troubles alimentaires, crise d’angoisse, troubles de l’humeur, troubles affectifs…)</p>
+						<p ref={addToRefs}>La médiation équine peut aussi s'adresser aux personnes à la recherche d'un bien-être, suite à une perte de confiance en soi, une dépression, un deuil récent, ou après avoir développé des symptômes de stress post-traumatique (Crises d’angoisse, troubles du sommeil, alimentaires ou affectifs…)</p>
 						<br />
 						<h4 ref={addToRefs}>Objectifs de la médiation équine :</h4>
 						<br />
 						
-								<p ref={addToRefs}>
-									<GoPrimitiveDot/>Solliciter l'attention 
-								</p>
-								<p ref={addToRefs}>
-									<GoPrimitiveDot/>Encourager les initiatives
-								</p>
-								<p ref={addToRefs}>
-									<GoPrimitiveDot/>Faciliter le repérage dans le temps et l'espace
-								</p>
 								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Développer la conscience du corps
 								</p>
@@ -98,38 +87,38 @@ const ForWho:React.FC<Props> = ({className}) => {
 									<GoPrimitiveDot/>Faciliter le partage des émotions
 								</p>
 								<p ref={addToRefs}>
+									<GoPrimitiveDot/>Encourager les initiatives
+								</p>
+								<p ref={addToRefs}>
 									<GoPrimitiveDot/>Entraîner les capacités de tolérance et d'adaptation au changement
+								</p>
+								<p ref={addToRefs}>
+									<GoPrimitiveDot/>Solliciter l'attention 
+								</p>
+								<p ref={addToRefs}>
+									<GoPrimitiveDot/>Faciliter le repérage dans le temps et l'espace
 								</p>
 						
 						<br />
 						<h4 ref={addToRefs} style={{fontSize: "1.8rem"}}>Bénéfices de la médiation équine :</h4>
 							<br />
 							<p ref={addToRefs}>
-								<GoPrimitiveDot/> Permet de canaliser la motricité (La chaleur transmise par l'animal à notre corps détend nos muscles et stimule notre propre système de circulation sanguine).
+								<GoPrimitiveDot/> Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention.
 							</p>
 							<p ref={addToRefs}>
-								<GoPrimitiveDot/> A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.
-							</p>
-							<p ref={addToRefs}>
-								<GoPrimitiveDot/> Favorise un lien affectif et développe l'empathie.
-							</p>
-							<p ref={addToRefs}>
-								<GoPrimitiveDot/> A des effets cardio-vasculaires positifs liés à la détente.
+								<GoPrimitiveDot/> Un effet physiologique positif, baisse les hormones du stress...
 							</p>
 							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Permet de s'épanouir, prendre plaisir, s'exprimer, s'autonomiser, prendre confiance en soi, s'affirmer.
 							</p>
 							<p ref={addToRefs}>
-								<GoPrimitiveDot/> Améliore la coordination, l'équilibre, la dextérité motrice, la communication, la concentration et l'attention.
+								<GoPrimitiveDot/> Favorise un lien affectif et développe l'empathie.
 							</p>
 							<p ref={addToRefs}>
-								<GoPrimitiveDot/> Effet apaisant et structurant, le cheval a un contact doux et est agréable à toucher.
+								<GoPrimitiveDot/> A un effet positif sur le cerveau et apaise et favorise l'exploration visuelle et vocale.
 							</p>
 							<p ref={addToRefs}>
 								<GoPrimitiveDot/> Le cheval a ses propres besoins et peut exprimer son désaccord. Cela entraîne des comportements interactifs.
-							</p>
-							<p ref={addToRefs}>
-								<GoPrimitiveDot/> Un effet physiologique positif, baisse les hormones du stress...
 							</p>
 								
 							<br />
