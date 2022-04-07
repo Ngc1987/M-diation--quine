@@ -11,10 +11,11 @@ interface slider {
   inProgress:  boolean;
 }
 interface Props {
-  className: string;
+  	className: string;
+	ariaHidden: boolean;
 }
 
-const Slider:React.FC<Props> = ({className}) => {
+const Slider:React.FC<Props> = ({className, ariaHidden}) => {
 
 	// State to know the index of the picture to display
 	const [slideAnim, setSlideAnim] = useState<slider>({
@@ -62,11 +63,13 @@ const Slider:React.FC<Props> = ({className}) => {
 		}
 	}
 
+
+	console.log(ariaHidden)
 	return (
+		
+			<div className={`gallery ${className}`} aria-hidden={ariaHidden}>
 
-			<div className={`gallery ${className}`}>
-
-				<Title title="Galerie" className='gallery__title' />
+				<Title title="Galerie" className='gallery__title' ariaHidden={ariaHidden}/>
 
 				<div className='gallery__slider'>
 
@@ -84,8 +87,8 @@ const Slider:React.FC<Props> = ({className}) => {
 						)
 					})}
 
-					<BtnSlider moveSlide={nextSlide} direction={"next"} />
-					<BtnSlider moveSlide={prevSlide} direction={"prev"} />
+					<BtnSlider moveSlide={prevSlide} direction={"prev"} tabIndex={ariaHidden ? -1 : 0} />
+					<BtnSlider moveSlide={nextSlide} direction={"next"} tabIndex={ariaHidden ? -1 : 0} />
 				</div>
 			</div>
 	)

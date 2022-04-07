@@ -32,7 +32,6 @@ const ContactForm = () => {
 			pauseOnHover: true,
 			draggable: false,
 			transition: Flip,
-			// className: 'submit-feedback success',
 			toastId: 'notifyToast'
 		});
 	};

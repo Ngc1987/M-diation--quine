@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import "./Contact.scss";
 
 import Title from '../../Components/Title/Title';
@@ -7,33 +7,49 @@ import Map from '../../Components/Map/Map';
 
 import { FaPhoneSquareAlt } from "react-icons/fa";
 
-export interface Props  {
+export interface ContactProps  {
 	className: string;
+	ariaHidden: boolean;
 }
 
-const Contact:React.FC<Props> = ({className}) => {
+function Contact({className, ariaHidden}:ContactProps):ReactElement {
+
+	console.log(ariaHidden)
 	return (
-		<div className={`contact ${className}`}>
+
+		
+		<section className={`contact ${className}`} >
+
 			<Title title="Contact" 
 					className="contact__title" 
+					ariaHidden={ariaHidden}
 			/>
+
 			<div className="contact__infos">
-				<p>Vous pouvez me contacter directement par téléphone en cliquant sur le lien suivant</p>
+
+				<p tabIndex={ariaHidden ? -1 : 0} 
+					aria-hidden={ariaHidden}>Vous pouvez me contacter directement par téléphone en cliquant sur le lien suivant</p>
 				
 					<a className="contact__infos-tel" 
 						href="tel:+33614382452" 
-						aria-label="Bouton appeler" >
+						aria-label="Bouton appeler"
+						tabIndex={ariaHidden ? -1 : 0} >
 						<FaPhoneSquareAlt/>
 					</a>
 				
-				<p>Ou en remplissant le formulaire ci-dessous. </p>
+				<p tabIndex={ariaHidden ? -1 : 0} 
+					aria-hidden={ariaHidden}>Ou en remplissant le formulaire ci-dessous. </p>
 			</div>
 			<ContactForm/>
 			<Title title="Localisation" 
 					className="contact__place" 
+					ariaHidden={ariaHidden}
 			/>
-			<Map/>
-		</div>
+			{
+				!ariaHidden &&
+				<Map ariaHidden={ariaHidden}/>
+			}
+		</section>
 	)
 };
 

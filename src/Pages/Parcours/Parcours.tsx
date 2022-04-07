@@ -7,11 +7,12 @@ import Title from "../../Components/Title/Title";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Interface for the cmponent props
-export interface Props  {
+export interface ParcoursProps  {
 	className: string;
+	ariaHidden: boolean;
 }
 
-const Parcours:React.FC<Props> = ({className}) => {
+const Parcours:React.FC<ParcoursProps> = ({className, ariaHidden}) => {
 
 	// Init the scrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
@@ -41,7 +42,7 @@ const Parcours:React.FC<Props> = ({className}) => {
 					start: 'top bottom-=30',
 					end: 'bottom bottom-=70',
 					toggleActions: 'play none none reverse',
-					markers: true
+					// markers: true
 				}
 			});
 	
@@ -49,13 +50,16 @@ const Parcours:React.FC<Props> = ({className}) => {
 	
 	}, []);
 
+	console.log(ariaHidden)
+
 	return (
 
-			<section className={`parcours ${className}`} data-pin="pinSection" >
+			<section className={`parcours ${className}`} data-pin="pinSection" aria-hidden={ariaHidden} >
 
 				<Title 
 					className="parcours__title" 
 					title="Mon parcours" 
+					ariaHidden={ariaHidden}
 					/>
 
 				<div className="parcours__content">
@@ -66,19 +70,19 @@ const Parcours:React.FC<Props> = ({className}) => {
 
 
 					<div className="parcours__content-article" >
-						<p ref={addToRefs}>
+						<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>
 							Depuis mon plus jeune âge, j'ai toujours passionnée par cet animal qu'est le cheval. Arrivée à l'âge adulte, je me suis décidée à passer un monitorat d'équitation (BEES 1er degré), que j'ai obtenu en 1992. 
 						</p>
 						<br />
-						<p ref={addToRefs}>
+						<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>
 							Mes diverses expériences professionnelles, m'ont ensuite amené à cotoyer un public divers (enfants adolescents ou adultes ayant des déficiences physiques ou intellectuelles, mais aussi femmes victimes de violences conjugales, personnes atteintes de pathologies sévères...), et je suis actuellement aide médico-psychologique depuis plus de 10 ans dans un IME (institut médico-éducatif) à Olonne sur Mer.
 						</p>
 						<br />
-						<p ref={addToRefs}>
+						<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>
 							Au sein de l'IME, nous possédons 2 poneys, ce qui m'a permis de m'exercer à la médiation équine pendant quelques années, auprès des jeunes pensionnaires, et de constater des changements positifs, aussi bien physiquement que psychiquement.
 						</p>
 						<br />
-						<p ref={addToRefs}>Ces expériences ont conforté mon envie de me former en tant que praticienne en médiation équine, ce que j'ai enfin fait en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
+						<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>Ces expériences ont conforté mon envie de me former en tant que praticienne en médiation équine, ce que j'ai enfin fait en 2017 avec l'association "Cheval Emoi", situé en Bretagne.</p>
 					</div>
 				</div>
 

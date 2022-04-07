@@ -37,11 +37,13 @@ const App:React.FC = () => {
 
 	// State for the displayed section on the page
 	const [sectionToDisplay, setSectionToDisplay] = useState<string>("description");
-
 	// Function to display the section to display
-	const handleSectionToDisplay = (e) => {
+	const handleSectionToDisplay = (e: { target: { dataset: { section: React.SetStateAction<string>; }; }; charCode: number; }) => {
 		setSectionToDisplay(e.target.dataset.section);
-		console.log(e.target.dataset.section)
+		
+		if(e.charCode === 13) {
+			setSectionToDisplay(e.target.dataset.section);
+		}
 	}
 	
 	// State to make appears the application after 100ms on loading page
@@ -79,15 +81,15 @@ const App:React.FC = () => {
 					}
 					<section className="main">
 						<Description className={`main__content ${sectionToDisplay === "description" ? "visible" : "hidden"}`} 
-									aria-hidden={sectionToDisplay === "description" ? false : true} />
+									ariaHidden={sectionToDisplay === "description" ? false : true} />
 						<ForWho className={`main__content ${sectionToDisplay === "pourqui" ? "visible" : "hidden"}`} 
-									aria-hidden={sectionToDisplay === "pourqui" ? false : true} />
+									ariaHidden={sectionToDisplay === "pourqui" ? false : true} />
 						<Parcours className={`main__content ${sectionToDisplay === "parcours" ? "visible" : "hidden"}`} 
-									aria-hidden={sectionToDisplay === "parcours" ? false : true} />
+									ariaHidden={sectionToDisplay === "parcours" ? false : true} />
 						<Slider className={`main__content ${sectionToDisplay === "galerie" ? "visible" : "hidden"}`} 
-									aria-hidden={sectionToDisplay === "galerie" ? false : true} />
+									ariaHidden={sectionToDisplay === "galerie" ? false : true} />
 						<Contact className={`main__content ${sectionToDisplay === "contact" ? "visible" : "hidden"}`} 
-									aria-hidden={sectionToDisplay === "contact" ? false : true} />
+									ariaHidden={sectionToDisplay === "contact" ? false : true} />
 					</section>
 				</div>
 			}

@@ -9,9 +9,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Interface for the component props
 export interface Props  {
 	className: string;
+	ariaHidden: boolean;
 }
 
-const Description:React.FC<Props> = ({className}) => {
+const Description:React.FC<Props> = ({className, ariaHidden}) => {
 	
 	// Init the scrollTrigger plugin
 	gsap.registerPlugin(ScrollTrigger);
@@ -46,38 +47,41 @@ const Description:React.FC<Props> = ({className}) => {
 			});
 		});
 	}, []);
+
+	console.log(ariaHidden)
 	
 	return (
 
-		<section data-scroll-section className={`description ${className}`}>
+		<section data-scroll-section className={`description ${className}`} aria-hidden={ariaHidden}>
 
 			<Title 
 				className="description__title" 
 				title="La médiation équine" 
-				subtitle="Qu'est-ce que c'est ?"/>
+				subtitle="Qu'est-ce que c'est ?"
+				ariaHidden={ariaHidden}/>
 
 			<div className="description__content">
 				<ImageSection 
 					className="description__content-image" 
 					src={process.env.PUBLIC_URL + "/assets/description.webp"} 
-					alt="deux chevaux face à deux personnes" />
+					alt="Un cheval deant une petite fille" />
 				
 				<div className="description__content-article" >
-					<p ref={addToRefs} >La médiation équine est un soin donné par un professionnel de santé formé à la relation d'aide, facilité par la présence d'un cheval ou d'un poney. Elle aide à traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
+					<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>La médiation équine est un soin donné par un professionnel de santé formé à la relation d'aide, facilité par la présence d'un cheval ou d'un poney. Elle aide à traiter ou apaiser certaines difficultés psychiques ou physiques.</p>
 					<br />
-					<h4 ref={addToRefs} >La médiation équine est en fait, l'art de soigner l'esprit par la médiation du cheval.</h4>
+					<h4 ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>La médiation équine est en fait, l'art de soigner l'esprit par la médiation du cheval.</h4>
 					<br />
-					<p ref={addToRefs} >Le cheval, un animal très sociable, est un médiateur idéal pour nous aider à nous connecter à nos émotions et à notre vraie nature. Ses sens lui permettent de percevoir chez l’être humain, par les odeurs, le langage corporel et l’intonation de voix de la personne, les émotions ressenties par celle-ci (l'anxiété, la peur, la tristesse…).
+					<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>Le cheval, un animal très sociable, est un médiateur idéal pour nous aider à nous connecter à nos émotions et à notre vraie nature. Ses sens lui permettent de percevoir chez l’être humain, par les odeurs, le langage corporel et l’intonation de voix de la personne, les émotions ressenties par celle-ci (l'anxiété, la peur, la tristesse…).
 					</p>
 					<br />
-					<p ref={addToRefs} >On dit que le cheval est notre miroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
+					<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>On dit que le cheval est notre miroir, il reflète nos émotions et nos pressentis. Un cheval va nous apprendre à communiquer avec nous même.</p>
 					<br />
-					<h4 ref={addToRefs} >"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h4>
+					<h4 ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>"Ce qui est mis à l'extérieur est le reflet de ce qui est vécu à l'intérieur"</h4>
 					<br />
-					<p ref={addToRefs} >Le cheval étant en quasi permanence connecté à son environnement, il va réagir à celui-ci et adapter son comportement en fonction des messages qu’il perçoit.
+					<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>Le cheval étant en quasi permanence connecté à son environnement, il va réagir à celui-ci et adapter son comportement en fonction des messages qu’il perçoit.
 					Il est donc un allié idéal pour susciter un éveil chez l’être humain, celui-ci étant également un être communiquant par nature.</p>
 					<br />
-					<p ref={addToRefs} >Pendant la séance de médiation équine, l’accent est donc particulièrement mis sur la communication et l’intersensibilité avec le cheval. C'est une démarche de soin et un processus créateur. Le cheval fait le lien entre le patient et le thérapeute. C'est la tension entre le patient qui tend vers son désir, et le thérapeute qui tend vers le désir du patient.</p>
+					<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>Pendant la séance de médiation équine, l’accent est donc particulièrement mis sur la communication et l’intersensibilité avec le cheval. C'est une démarche de soin et un processus créateur. Le cheval fait le lien entre le patient et le thérapeute. C'est la tension entre le patient qui tend vers son désir, et le thérapeute qui tend vers le désir du patient.</p>
 					<br />
 				</div>
 			</div>
