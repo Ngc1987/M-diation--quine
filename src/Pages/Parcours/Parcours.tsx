@@ -71,7 +71,7 @@ const Parcours:React.FC<ParcoursProps> = ({className, ariaHidden}) => {
 
 					<div className="parcours__content-article" >
 						<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>
-							Depuis mon plus jeune âge, j'ai toujours passionnée par cet animal qu'est le cheval. Arrivée à l'âge adulte, je me suis décidée à passer un monitorat d'équitation (BEES 1er degré), que j'ai obtenu en 1992. 
+							Depuis mon plus jeune âge, j'ai toujours été passionnée par cet animal qu'est le cheval. Arrivée à l'âge adulte, je me suis décidée à passer un monitorat d'équitation (BEES 1er degré), que j'ai obtenu en 1992. 
 						</p>
 						<br />
 						<p ref={addToRefs} tabIndex={ariaHidden ? -1 : 0}>
